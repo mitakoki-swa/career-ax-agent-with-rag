@@ -1,0 +1,61 @@
+ノードID,正規名,種別,説明
+N_JOB_MLOPS,MLOps,職種,学習から推論・監視までモデルを運用するロール
+N_JOB_INFRA,インフラエンジニア,職種,基盤・クラスタ・CI/CD・監視基盤を担うロール
+N_JOB_DE,データエンジニア,職種,データ基盤・パイプライン・特徴量を担うロール
+N_JOB_SWE,ソフトウェアエンジニア,職種,アプリケーションとAPI実装を担うロール
+N_WORK_TRAIN,学習,業務,モデルの学習・再学習・本番切替
+N_WORK_SERVING,モデル配信,業務,学習済みモデルをオンラインまたは端末で提供する
+N_WORK_EXPERIMENT,実験管理,業務,実験の記録・比較・再現
+N_WORK_MONITOR,モデル監視,業務,推論品質・ドリフト・レイテンシの監視
+N_WORK_FEATURE,特徴量,業務,学習・推論用特徴量と学習データの整備
+N_WORK_QUALITY,データ品質,業務,学習データ品質の監視と検知
+N_WORK_TRAIN_INFRA,学習基盤,業務,学習ジョブを回すクラスタ・CI・IaC
+N_WORK_INFER_API,推論API,業務,モデルをアプリから呼ぶAPIと組み込み
+N_WORK_WEB_OPS,Web運用,業務,MLを含まないWeb/API基盤の運用
+N_WORK_DWH,DWH,業務,分析・経営向けデータウェアハウス
+N_WORK_BI,分析・BI,業務,KPI集計やダッシュボード。学習用途ではない
+N_WORK_APP,業務アプリ,業務,MLを含まない業務システム実装
+N_SKILL_PYTHON,Python,スキル,案件票の正規名
+N_SKILL_MLFLOW,MLflow,スキル,案件票の正規名
+N_SKILL_SAGEMAKER,SageMaker,スキル,案件票の正規名
+N_SKILL_AWS,AWS,スキル,案件票の正規名
+N_SKILL_CLOUDWATCH,CloudWatch,スキル,案件票の正規名
+N_SKILL_PROMETHEUS,Prometheus,スキル,案件票の正規名
+N_SKILL_GRAFANA,Grafana,スキル,案件票の正規名
+N_SKILL_SKLEARN,scikit-learn,スキル,案件票の正規名
+N_SKILL_AIRFLOW,Airflow,スキル,案件票の正規名
+N_SKILL_K8S,Kubernetes,スキル,案件票の正規名
+N_SKILL_TERRAFORM,Terraform,スキル,案件票の正規名
+N_SKILL_DOCKER,Docker,スキル,案件票の正規名
+N_SKILL_GPU,GPU,スキル,案件票の正規名
+N_SKILL_DATADOG,Datadog,スキル,案件票の正規名
+N_SKILL_BIGQUERY,BigQuery,スキル,案件票の正規名
+N_SKILL_DATAFLOW,Dataflow,スキル,案件票の正規名
+N_SKILL_VERTEX,Vertex AI,スキル,案件票の正規名
+N_SKILL_GCP,GCP,スキル,案件票の正規名
+N_SKILL_SQL,SQL,スキル,案件票の正規名
+N_SKILL_SNOWFLAKE,Snowflake,スキル,案件票の正規名
+N_SKILL_DBT,dbt,スキル,案件票の正規名
+N_SKILL_FASTAPI,FastAPI,スキル,案件票の正規名
+N_SKILL_REST,REST API,スキル,案件票の正規名
+N_SKILL_JAVA,Java,スキル,案件票の正規名
+N_SKILL_SPRING,Spring Boot,スキル,案件票の正規名
+N_SKILL_SQLSERVER,SQL Server,スキル,案件票の正規名
+N_SKILL_AZURE,Azure,スキル,案件票の正規名
+N_SKILL_SPARK,Spark,スキル,案件票の正規名
+N_SKILL_PANDAS,pandas,スキル,案件票の正規名
+N_SKILL_TABLEAU,Tableau,スキル,案件票の正規名
+N_SKILL_ARGO_WF,Argo Workflows,スキル,案件票の正規名
+N_SKILL_AZUREML,Azure ML,スキル,案件票の正規名
+N_SKILL_GKE,GKE,スキル,案件票の正規名
+N_SKILL_TENSORRT,TensorRT,スキル,案件票の正規名
+N_SKILL_JETSON,NVIDIA Jetson,スキル,案件票の正規名
+N_SKILL_KAFKA,Kafka,スキル,案件票の正規名
+N_SKILL_ARGOCD,Argo CD,スキル,案件票の正規名
+N_SKILL_GHA,GitHub Actions,スキル,案件票の正規名
+N_SKILL_GE,Great Expectations,スキル,案件票の正規名
+N_SKILL_FEAST,Feast,スキル,案件票の正規名
+N_SKILL_REDIS,Redis,スキル,案件票の正規名
+N_SKILL_TS,TypeScript,スキル,案件票の正規名
+N_SKILL_NEXT,Next.js,スキル,案件票の正規名
+N_SKILL_S3,S3,スキル,案件票の正規名

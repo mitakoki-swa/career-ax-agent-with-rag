@@ -23,6 +23,8 @@ AIは最終的なアサイン可否を決定するものではなく、マネー
 - [本プロジェクトのビジョン](/docs/vision.md)
 - [製品要求仕様書](/docs/prd)
 - [意思決定記録](/docs/adr/)
+- [RAG / GraphRAG PoC](/docs/poc/rag-vs-graphrag.md)
+- [検索方式とCLI引数](/docs/poc/検索方式とCLI引数.md)
 
 ## 3. 開発方法
 製作中

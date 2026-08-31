@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+.env
+.DS_Store
+data/llm_generated/*.csv
+data/community_summaries/*.csv
+data/cache/
+data/eval_results/
+artifacts/graph_visualizations/

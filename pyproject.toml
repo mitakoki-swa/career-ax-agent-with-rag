@@ -1,0 +1,24 @@
+[project]
+name = "career-ax-agent-with-rag"
+version = "0.1.0"
+description = "案件検索の PoC（ベクトルRAG / BYOG GraphRAG / LLM GraphRAG）"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "boto3>=1.35.0,<2.0.0",
+    "networkx>=3.3,<4.0.0",
+]
+
+[project.optional-dependencies]
+openai = [
+    "openai>=1.40.0,<2.0.0",
+    "langchain-core>=0.3.0",
+    "langchain-openai>=0.2.0",
+    "langchain-experimental>=0.3.4",
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
