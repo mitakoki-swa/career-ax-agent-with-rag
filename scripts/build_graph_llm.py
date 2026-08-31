@@ -17,9 +17,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from build_graph_byog import run_plan_eval
+from byog_search import ByogSearcher
 from communities import (
     GLOBAL_CATEGORIES,
-    SUMMARY_DIR,
     load_communities,
     rank_communities,
     search_by_summaries,
@@ -45,8 +46,27 @@ from graph_core import (
     validate,
     write_csv,
 )
+from retrieval_core import (
+    CachedEmbedder,
+    ProjectReranker,
+    SearchPlan,
+    SemanticNodeResolver,
+    adapt_search_plan_to_graph,
+    load_node_labels,
+    load_search_plans,
+)
+from search_rag import build_embedder, parse_ks
 
 GENERATED_DIRNAME = "llm_generated"
+CANONICAL_RELATIONS = frozenset({"包含", "関連", "使用"})
+RELATION_ALIASES = {
+    "従事": "関連",
+    "担当": "関連",
+    "連携": "関連",
+    "利用": "使用",
+    "活用": "使用",
+    "属する": "包含",
+}
 
 
 def node_id_from_name(name: str) -> str:
@@ -58,6 +78,12 @@ def node_id_from_name(name: str) -> str:
 
 def _normalize_name(name: str) -> str:
     return re.sub(r"\s+", "", name).lower()
+
+
+def normalize_relation(relation: str) -> str:
+    normalized = (relation or "関連").strip() or "関連"
+    normalized = RELATION_ALIASES.get(normalized, normalized)
+    return normalized if normalized in CANONICAL_RELATIONS else "関連"
 
 
 class ExtractedGraph:
@@ -84,7 +110,7 @@ class ExtractedGraph:
     def add_edge(self, source_name: str, target_name: str, relation: str) -> None:
         source_id = self.add_node(source_name, "概念")
         target_id = self.add_node(target_name, "概念")
-        rel = (relation or "関連").strip() or "関連"
+        rel = normalize_relation(relation)
         key = (source_id, target_id, rel)
         if key in self._edge_keys:
             return
@@ -297,7 +323,7 @@ def load_extracted(output_dir: Path) -> ExtractedGraph:
     for row in read_csv(output_dir / "edges.csv"):
         source = (row.get("出発ノードID") or "").strip()
         target = (row.get("到着ノードID") or "").strip()
-        relation = (row.get("関係") or "関連").strip()
+        relation = normalize_relation(row.get("関係") or "関連")
         if not source or not target:
             continue
         extracted.edges.append(
@@ -384,8 +410,59 @@ def main() -> int:
     parser.add_argument("--start", default="", help="起点のノード名またはID。例: MLOps")
     parser.add_argument("--query", default="", help="質問文。名前が含まれるノードから辿る")
     parser.add_argument("--eval", action="store_true", help="questions.csv で一括採点する")
+    parser.add_argument(
+        "--eval-mode",
+        choices=("legacy", "plan", "both"),
+        default="legacy",
+        help="従来検索、共通検索計画評価、または両方を評価する",
+    )
+    parser.add_argument(
+        "--eval-split",
+        choices=("development", "holdout", "all"),
+        default="all",
+        help="評価対象の区分。デフォルトは全件",
+    )
     parser.add_argument("--k", type=int, default=28, help="評価時に使う最大件数")
+    parser.add_argument(
+        "--ks", default="5,10,20", help="plan評価で使うkの一覧"
+    )
     parser.add_argument("--summary-k", type=int, default=3, help="全体像で使うコミュニティ要約の件数")
+    parser.add_argument(
+        "--plans",
+        default="search_plans.draft.json",
+        help="data-dir 配下の検索計画JSON",
+    )
+    parser.add_argument(
+        "--reranker",
+        choices=("local", "bedrock", "openai"),
+        default="bedrock",
+        help="plan評価のrerank。bedrockはTitan Embeddings",
+    )
+    parser.add_argument("--min-score", type=float, default=0.0)
+    parser.add_argument(
+        "--node-top-k",
+        type=int,
+        default=5,
+        help="LLM Graphの各概念へ意味的に対応付ける最大ノード数",
+    )
+    parser.add_argument(
+        "--node-min-score",
+        type=float,
+        default=0.55,
+        help="LLM Graphの意味ノード検索に使うコサイン類似度下限",
+    )
+    parser.add_argument(
+        "--llm-max-hops",
+        type=int,
+        default=4,
+        choices=range(1, 6),
+        metavar="1..5",
+        help="LLM Graphのexpand/bridgeで最低限確保する探索hop数",
+    )
+    parser.add_argument("--no-cache", action="store_true")
+    parser.add_argument(
+        "--output", type=Path, default=None, help="plan評価を共通JSON形式で保存"
+    )
     parser.add_argument("--llm", choices=("local", "bedrock", "openai"), default="local")
     parser.add_argument(
         "--extractor",
@@ -466,14 +543,119 @@ def main() -> int:
             print(f"  - {project_id}  {project.name if project else ''}")
 
     if args.eval:
-        questions = load_questions(args.data_dir)
-        if not questions:
-            print("questions.csv が空です。", file=sys.stderr)
+        try:
+            questions = load_questions(args.data_dir)
+        except (FileNotFoundError, ValueError) as exc:
+            print(f"読み込みエラー: {exc}", file=sys.stderr)
             return 1
-        communities = load_communities(SUMMARY_DIR / "llm.csv")
+        if args.eval_split != "all":
+            questions = [
+                question
+                for question in questions
+                if question.evaluation_split == args.eval_split
+            ]
+        if not questions:
+            print(
+                f"questions.csv に評価区分={args.eval_split}の質問がありません。",
+                file=sys.stderr,
+            )
+            return 1
+        communities = load_communities(
+            args.data_dir / "community_summaries" / "llm.csv"
+        )
         if communities:
             print(f"コミュニティ要約: {len(communities)} 件を全体像に使用")
-        run_eval(graph, questions, k=args.k, communities=communities, summary_k=args.summary_k)
+        if args.eval_mode in {"legacy", "both"}:
+            run_eval(
+                graph,
+                questions,
+                k=args.k,
+                communities=communities,
+                summary_k=args.summary_k,
+            )
+        if args.eval_mode in {"plan", "both"}:
+            if not communities and any(
+                question.category in GLOBAL_CATEGORIES for question in questions
+            ):
+                print(
+                    "plan評価の全体像質問にはLLMコミュニティ要約が必要です。"
+                    "先に scripts/summarize_communities.py --source llm を実行してください。",
+                    file=sys.stderr,
+                )
+                return 1
+            try:
+                plans = load_search_plans(args.data_dir / args.plans)
+                labels = load_node_labels(args.data_dir / "nodes.csv")
+                embedder = build_embedder(args.reranker)
+                if not args.no_cache:
+                    embedder = CachedEmbedder(
+                        embedder,
+                        args.data_dir
+                        / "cache"
+                        / f"embeddings-{args.reranker}.json",
+                    )
+                resolver = SemanticNodeResolver(
+                    graph,
+                    embedder,
+                    top_k=args.node_top_k,
+                    min_score=args.node_min_score,
+                )
+                adapted_plans: dict[str, SearchPlan] = {}
+                resolution: dict[str, dict[str, object]] = {}
+                for question in questions:
+                    plan = plans.get(question.plan_id)
+                    if plan is None:
+                        raise ValueError(
+                            f"{question.id} の検索計画がありません"
+                        )
+                    adapted, metadata = adapt_search_plan_to_graph(
+                        plan,
+                        labels,
+                        graph,
+                        resolver=resolver,
+                        min_graph_hops=args.llm_max_hops,
+                    )
+                    adapted_plans[question.plan_id] = adapted
+                    resolution[question.id] = metadata
+                result = run_plan_eval(
+                    graph=graph,
+                    questions=questions,
+                    plans=adapted_plans,
+                    searcher=ByogSearcher(
+                        graph,
+                        ProjectReranker(graph.projects, embedder),
+                    ),
+                    ks=parse_ks(args.ks),
+                    min_score=args.min_score,
+                    communities=communities,
+                    summary_k=args.summary_k,
+                    system="llm",
+                    plan_resolution=resolution,
+                )
+                result["node_resolution"] = {
+                    "strategy": "lexical_and_embedding_one_to_many",
+                    "top_k": args.node_top_k,
+                    "min_score": args.node_min_score,
+                    "llm_max_hops": args.llm_max_hops,
+                }
+                if args.output:
+                    args.output.parent.mkdir(parents=True, exist_ok=True)
+                    args.output.write_text(
+                        json.dumps(
+                            {
+                                "evaluation_split": args.eval_split,
+                                "runs": [result],
+                            },
+                            ensure_ascii=False,
+                            indent=2,
+                        )
+                        + "\n",
+                        encoding="utf-8",
+                    )
+                    print(f"評価結果: {args.output}")
+            except (FileNotFoundError, ValueError, RuntimeError) as exc:
+                print(f"plan評価エラー: {exc}", file=sys.stderr)
+                return 1
 
     if not args.start and not args.query and not args.eval:
         print("使い方: --start MLOps  /  --query \"...\"  /  --eval")

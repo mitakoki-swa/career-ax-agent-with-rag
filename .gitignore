@@ -5,5 +5,6 @@ __pycache__/
 data/llm_generated/*.csv
 data/community_summaries/*.csv
 data/cache/
-data/eval_results/
+data/eval_results/*
+!data/eval_results/*-holdout-final.json
 artifacts/graph_visualizations/
