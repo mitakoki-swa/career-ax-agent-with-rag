@@ -1,0 +1,29 @@
+案件ID,案件名,想定職種,ドメイン,クラウド,案件概要,必要スキル
+P001,外観検査の実験管理と学習パイプライン,MLOps,製造,AWS,工場の外観検査モデルを再現可能にするため実験管理と学習パイプラインを整備する。学習ジョブの実行とメトリクス記録が主で推論APIの改修は範囲外。,Python / MLflow / SageMaker / AWS
+P002,需要予測モデルのドリフト監視,MLOps,小売,AWS,需要予測の推論ドリフトとレイテンシを監視し再学習判断の材料を出す。ダッシュボード整備が中心で特徴量設計は含まない。,Python / CloudWatch / Prometheus / Grafana
+P003,与信スコアリングモデルの運用,MLOps,金融,AWS,与信モデルの再学習・検証・本番切替を担当する。規制対応のため再現性と監査ログが必要でPythonで前処理と学習を回す。,Python / scikit-learn / MLflow / AWS / Airflow
+P004,モデル配信のKubernetes化,インフラエンジニア,広告,AWS,既存のモデル配信をKubernetes上の推論サービスとして載せ替える。HPA・GPUノード・モデル成果物の配置まで行いWebフロントのインフラは対象外。,Kubernetes / Terraform / AWS / Docker / GPU
+P005,会員サイトのEKS運用,インフラエンジニア,エンタメ,AWS,会員サイトのAPIとバッチをEKSで運用する。デプロイとクラスタ更新とコスト最適化が主で機械学習は含まれない。,Kubernetes / Terraform / AWS / Datadog
+P006,店舗データからの特徴量パイプライン,データエンジニア,小売,GCP,店舗・在庫・顧客行動から学習用特徴量を日次生成しBigQuery経由でVertex AIへ渡す。モデル学習そのものは別チーム。,Python / BigQuery / Dataflow / Vertex AI / GCP / SQL
+P007,全社DWHと経営マート構築,データエンジニア,製造,AWS,基幹の売上・在庫をSnowflakeへ集約し経営ダッシュボード用マートを作る。学習データや特徴量は対象外。,SQL / Snowflake / dbt / AWS
+P008,画像診断モデルの推論API実装,ソフトウェアエンジニア,ヘルスケア,AWS,画像診断モデルをFastAPIでラップし電子カルテ連携のRESTを提供する。モデル学習は触らないが前処理とレスポンス設計はアプリ側。,Python / FastAPI / Docker / AWS / REST API
+P009,社内申請ワークフロー刷新,ソフトウェアエンジニア,社内システム,Azure,勤怠・経費の申請画面と承認フローをJavaで再構築する。バッチとRDBが中心でML要素はない。,Java / Spring Boot / SQL Server / Azure
+P010,遅延予測の学習データ整備と精度監視,MLOps,物流,AWS,配送遅延予測向けにETLで学習データを作り本番推論の精度劣化も同じチームで見る。パイプライン障害と推論ドリフトの両方を担当する。,Python / Airflow / Spark / Prometheus / AWS
+P011,クリックログのVertex AI学習データ基盤,データエンジニア,広告,GCP,クリックログを整形しVertex AIの学習ジョブへ供給する。特徴量の鮮度管理がありモデルのデプロイは範囲外。,Python / GCP / BigQuery / Vertex AI / SQL
+P012,法人営業向け資産ダッシュボード,データエンジニア,金融,AWS,預かり資産と商談進捗を可視化する。Pythonで集計バッチを書くが与信モデルやMLOpsは含まない。,Python / pandas / Tableau / AWS / SQL
+P013,学習ジョブのKubernetes定期実行,インフラエンジニア,製造,AWS,学習ジョブをKubernetes Jobとして定期実行できるようクラスタとキューを整備する。オンラインのモデル配信は対象外。,Kubernetes / Argo Workflows / AWS / Docker
+P014,研究学習のMLflow導入,MLOps,ヘルスケア,Azure,研究者が個別に学習している状態をMLflowで実験と比較を残す運用に変える。推論基盤の構築は含まない。,Python / MLflow / Azure ML
+P015,推薦モデルのGKEオンライン配信,インフラエンジニア,メディア,GCP,推薦モデルをGPUノードのGKEでオンライン配信する。レイテンシ要件がありアプリ画面は別チーム。,Kubernetes / GKE / GPU / Terraform / GCP
+P016,店舗端末での需要予測推論,MLOps,小売,AWS,店舗のJetson上で需要予測を推論し本部へ返す。モデル圧縮と端末への配布が主でOSやデバイスドライバ開発は含まない。,Python / TensorRT / AWS / Docker / NVIDIA Jetson
+P017,決済ログを使った不正検知モデル運用,MLOps,金融,AWS,カード決済と一部の分散台帳上の取引ログを入力に不正検知モデルを運用する。コントラクト開発やチェーン基盤の構築は範囲外。,Python / scikit-learn / Kafka / AWS
+P018,学習からデプロイまでのGitOps化,インフラエンジニア,広告,AWS,学習からデプロイまでのパイプラインをGitOpsで回す。クラスタとCIが主だが成果物はモデルである。,Kubernetes / Argo CD / Terraform / GitHub Actions / AWS
+P019,与信学習データの品質監視,データエンジニア,金融,AWS,与信学習に使う入力の欠損・偏り・遅延を検知する。特徴量品質がモデル性能に直結するため学習チームと連携する。DWHの箱作りではない。,Python / Great Expectations / Airflow / SQL / AWS
+P020,推論エンドポイントの監視設計,インフラエンジニア,小売,AWS,オンライン推論のレイテンシとエラー率をDatadogで見る。通常のWeb監視ではなくモデルエンドポイント単位の設計である。,Datadog / Kubernetes / AWS / Terraform
+P021,再学習用GPUクラスタのIaC,インフラエンジニア,製造,AWS,外観検査の再学習用にGPUノードをTerraformで払い出す。学習ジョブの中身は触らないがMLチームが使う基盤である。,Terraform / AWS / GPU / Kubernetes
+P022,オンラインオフライン共用の特徴量ストア,データエンジニア,広告,GCP,学習と推論で同じ特徴量を使うため特徴量ストアを入れる。オンライン・オフライン両方の入力になる。,Python / Feast / BigQuery / GCP / Redis
+P023,需要予測のSageMaker再学習運用,MLOps,物流,AWS,需要予測の再学習をSageMaker Pipelineで定期実行し承認後に本番へ出す。アプリ画面の改修は含まない。,Python / SageMaker / AWS / scikit-learn
+P024,会員アプリへの推薦API組み込み,ソフトウェアエンジニア,メディア,GCP,既存アプリから推薦モデルの推論APIを呼び画面に出す。クライアント実装・キャッシュ・フォールバックが主である。,TypeScript / Next.js / REST API / GCP
+P025,アプリログのKPI集計ETL,データエンジニア,エンタメ,AWS,クリックログをS3経由で分析用テーブルへ載せる。目的はKPI集計であり学習用途ではない。,Python / Spark / S3 / AWS / SQL
+P026,画像モデルのAzure ML運用,MLOps,ヘルスケア,Azure,画像モデルの登録・ステージング・本番切替をAzure MLで運用する。,Python / Azure ML / Docker
+P027,与信モデル向け特徴量設計,データエンジニア,金融,AWS,取引と属性から与信用特徴量を設計し学習テーブルを供給する。Pythonで前処理しモデルのデプロイはしない。,Python / SQL / Airflow / AWS / pandas
+P028,クリック予測の配信と監視の一体運用,MLOps,広告,GCP,クリック予測をGKEでオンライン配信し同じチームで特徴量遅延と推論ドリフトも見る。データパイプラインの一部とモデル監視が同一案件である。,Python / Kubernetes / Vertex AI / Prometheus / GCP / Dataflow

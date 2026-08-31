@@ -1,0 +1,430 @@
+{
+  "Q01": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "role", "value": "MLOps", "node_id": "N_JOB_MLOPS"}
+    ],
+    "query_terms": ["MLOps"],
+    "status": "draft",
+    "note": "職種の完全一致"
+  },
+  "Q02": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "skills", "value": "MLflow", "node_id": "N_SKILL_MLFLOW"}
+    ],
+    "query_terms": ["MLflow"],
+    "status": "draft",
+    "note": "スキルの完全一致"
+  },
+  "Q03": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "skills", "value": "Kubernetes", "node_id": "N_SKILL_K8S"}
+    ],
+    "query_terms": ["Kubernetes"],
+    "status": "draft",
+    "note": "スキルの完全一致"
+  },
+  "Q04": {
+    "mode": "exact",
+    "operator": "AND",
+    "conditions": [
+      {"field": "project_id", "value": "P003"}
+    ],
+    "query_terms": ["P003"],
+    "status": "draft",
+    "note": "案件IDの完全一致"
+  },
+  "Q05": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "skills", "value": "Python", "node_id": "N_SKILL_PYTHON"},
+      {"field": "domain", "value": "金融"}
+    ],
+    "query_terms": ["Python", "金融"],
+    "status": "draft",
+    "note": "横断条件はAND"
+  },
+  "Q06": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "skills", "value": "Kubernetes", "node_id": "N_SKILL_K8S"},
+      {"field": "concept", "value": "モデル配信", "node_id": "N_WORK_SERVING"}
+    ],
+    "query_terms": ["Kubernetes", "モデル配信", "オンライン推論"],
+    "status": "draft",
+    "note": "スキルと業務の横断条件"
+  },
+  "Q07": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "concept", "value": "データパイプライン", "node_id": "N_WORK_FEATURE"},
+      {"field": "concept", "value": "モデル監視", "node_id": "N_WORK_MONITOR"}
+    ],
+    "query_terms": ["データパイプライン", "モデル監視", "同一案件"],
+    "status": "draft",
+    "note": "2業務を同時に持つ案件をAND"
+  },
+  "Q08": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "cloud", "value": "GCP"},
+      {"field": "role", "value": "データエンジニア", "node_id": "N_JOB_DE"},
+      {"field": "concept", "value": "特徴量", "node_id": "N_WORK_FEATURE"}
+    ],
+    "query_terms": ["GCP", "データエンジニア", "ML", "特徴量"],
+    "status": "draft",
+    "note": "クラウド・職種・ML関連業務のAND"
+  },
+  "Q09": {
+    "mode": "filter",
+    "operator": "OR",
+    "conditions": [
+      {"field": "concept", "value": "学習", "node_id": "N_WORK_TRAIN"},
+      {"field": "concept", "value": "モデル配信", "node_id": "N_WORK_SERVING"},
+      {"field": "concept", "value": "実験管理", "node_id": "N_WORK_EXPERIMENT"},
+      {"field": "concept", "value": "モデル監視", "node_id": "N_WORK_MONITOR"},
+      {"field": "concept", "value": "特徴量", "node_id": "N_WORK_FEATURE"},
+      {"field": "concept", "value": "データ品質", "node_id": "N_WORK_QUALITY"},
+      {"field": "concept", "value": "学習基盤", "node_id": "N_WORK_TRAIN_INFRA"},
+      {"field": "concept", "value": "推論API", "node_id": "N_WORK_INFER_API"}
+    ],
+    "query_terms": ["MLOps専門性", "学習", "配信", "監視", "特徴量"],
+    "status": "draft",
+    "note": "ML関連業務ノードのOR。Web運用・DWH・BI・業務アプリを除外"
+  },
+  "Q10": {
+    "mode": "graph_bridge",
+    "operator": "OR",
+    "start_node_ids": ["N_JOB_INFRA"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["インフラエンジニア", "MLOps", "キャリア接続"],
+    "status": "draft",
+    "note": "共通業務を介した職種間ブリッジ"
+  },
+  "Q11": {
+    "mode": "graph_bridge",
+    "operator": "OR",
+    "conditions": [
+      {"field": "concept", "value": "特徴量", "node_id": "N_WORK_FEATURE"},
+      {"field": "concept", "value": "データ品質", "node_id": "N_WORK_QUALITY"}
+    ],
+    "start_node_ids": ["N_JOB_DE"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["データエンジニア", "MLOps", "特徴量", "学習データ品質"],
+    "status": "draft",
+    "note": "特徴量・品質を介した職種間ブリッジ"
+  },
+  "Q12": {
+    "mode": "graph_bridge",
+    "operator": "AND",
+    "conditions": [
+      {"field": "concept", "value": "推論API", "node_id": "N_WORK_INFER_API"}
+    ],
+    "start_node_ids": ["N_JOB_SWE"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["ソフトウェアエンジニア", "推論API", "MLシステム"],
+    "status": "draft",
+    "note": "推論APIを介した職種間ブリッジ"
+  },
+  "Q13": {
+    "mode": "global_summary",
+    "operator": "OR",
+    "query_terms": ["MLOps周辺", "案件全体", "スキル", "業務傾向"],
+    "status": "draft",
+    "note": "全体像質問はコミュニティ要約で候補生成"
+  },
+  "Q14": {
+    "mode": "graph_bridge",
+    "operator": "AND",
+    "conditions": [
+      {"field": "role", "value": "データエンジニア", "node_id": "N_JOB_DE"}
+    ],
+    "start_node_ids": ["N_JOB_DE"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["データ基盤", "MLOps", "特徴量", "データ品質"],
+    "status": "draft",
+    "note": "データエンジニア案件に限定した職種間ブリッジ"
+  },
+  "Q15": {
+    "mode": "graph_bridge",
+    "operator": "AND",
+    "conditions": [
+      {"field": "role", "value": "インフラエンジニア", "node_id": "N_JOB_INFRA"}
+    ],
+    "start_node_ids": ["N_JOB_INFRA"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["インフラ", "ML", "Kubernetes", "GPU", "推論基盤", "監視"],
+    "status": "draft",
+    "note": "MLと接続するインフラ案件だけに限定"
+  },
+  "Q16": {
+    "mode": "graph_bridge",
+    "operator": "AND",
+    "conditions": [
+      {"field": "role", "value": "ソフトウェアエンジニア", "node_id": "N_JOB_SWE"}
+    ],
+    "start_node_ids": ["N_JOB_SWE"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 3,
+    "query_terms": ["アプリ開発", "MLOps", "推論API", "モデル配信"],
+    "status": "draft",
+    "note": "推論API・モデル配信を介した職種間ブリッジ"
+  },
+  "Q17": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "量子コンピュータ"}
+    ],
+    "query_terms": ["量子コンピュータ"],
+    "status": "draft",
+    "note": "該当なしを返す負例"
+  },
+  "Q18": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "Unity"}
+    ],
+    "query_terms": ["Unity", "ゲームクライアント"],
+    "status": "draft",
+    "note": "該当なしを返す負例"
+  },
+  "Q19": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "組み込みファームウェア"}
+    ],
+    "query_terms": ["組み込みファームウェア"],
+    "status": "draft",
+    "note": "P016の端末推論を誤検出しない負例"
+  },
+  "Q20": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "スマートコントラクト専門"}
+    ],
+    "query_terms": ["スマートコントラクト専門"],
+    "status": "draft",
+    "note": "P017の関連ログを専門開発と誤検出しない負例"
+  },
+  "Q21": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "concept", "value": "分析・BI", "node_id": "N_WORK_BI"}
+    ],
+    "query_terms": ["分析・BI", "ダッシュボード", "データ集計"],
+    "status": "draft",
+    "note": "業務ノードの完全一致（事実引き）"
+  },
+  "Q22": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "role", "value": "ソフトウェアエンジニア", "node_id": "N_JOB_SWE"}
+    ],
+    "query_terms": ["ソフトウェアエンジニア"],
+    "status": "draft",
+    "note": "職種の完全一致（事実引き）"
+  },
+  "Q23": {
+    "mode": "filter",
+    "operator": "OR",
+    "conditions": [
+      {"field": "cloud", "value": "AWS"},
+      {"field": "skills", "value": "AWS", "node_id": "N_SKILL_AWS"}
+    ],
+    "query_terms": ["AWS"],
+    "status": "draft",
+    "note": "クラウド列または必要スキルのAWS一致（事実引き）"
+  },
+  "Q24": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "cloud", "value": "GCP"},
+      {"field": "role", "value": "インフラエンジニア", "node_id": "N_JOB_INFRA"},
+      {"field": "skills", "value": "Kubernetes", "node_id": "N_SKILL_K8S"}
+    ],
+    "query_terms": ["GCP", "Kubernetes", "GKE", "インフラエンジニア"],
+    "status": "draft",
+    "note": "クラウド・職種・スキルの横断（AND）"
+  },
+  "Q25": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "domain", "value": "小売"},
+      {"field": "concept", "value": "モデル監視", "node_id": "N_WORK_MONITOR"}
+    ],
+    "query_terms": ["小売", "監視", "Prometheus", "Datadog"],
+    "status": "draft",
+    "note": "ドメインと業務（監視）の横断"
+  },
+  "Q26": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "cloud", "value": "AWS"},
+      {"field": "skills", "value": "Airflow", "node_id": "N_SKILL_AIRFLOW"}
+    ],
+    "query_terms": ["AWS", "Airflow", "データエンジニア", "MLOps"],
+    "status": "draft",
+    "note": "AWSとAirflowの横断（職種はquery_termsでタイブレークに活用）"
+  },
+  "Q27": {
+    "mode": "graph_bridge",
+    "operator": "AND",
+    "conditions": [
+      {"field": "concept", "value": "推論API", "node_id": "N_WORK_INFER_API"}
+    ],
+    "start_node_ids": ["N_JOB_SWE"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["Web開発", "機械学習", "推論API", "モデル組み込み"],
+    "status": "draft",
+    "note": "SWEから推論APIを介したMLOpsへのブリッジ"
+  },
+  "Q28": {
+    "mode": "graph_bridge",
+    "operator": "OR",
+    "conditions": [
+      {"field": "concept", "value": "学習基盤", "node_id": "N_WORK_TRAIN_INFRA"},
+      {"field": "skills", "value": "GPU", "node_id": "N_SKILL_GPU"}
+    ],
+    "start_node_ids": ["N_JOB_INFRA"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["インフラエンジニア", "GPU", "Kubernetes", "学習基盤構築"],
+    "status": "draft",
+    "note": "インフラからGPU/学習基盤を介したMLへのブリッジ"
+  },
+  "Q29": {
+    "mode": "graph_expand",
+    "operator": "AND",
+    "conditions": [
+      {"field": "role", "value": "MLOps", "node_id": "N_JOB_MLOPS"},
+      {"field": "skills", "value": "NVIDIA Jetson", "node_id": "N_SKILL_JETSON"}
+    ],
+    "start_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["エッジデバイス", "Jetson", "TensorRT", "ハードウェア", "モデル最適化"],
+    "status": "draft",
+    "note": "MLOps起点の周辺（エッジ・ハードウェア領域への拡張）"
+  },
+  "Q30": {
+    "mode": "graph_bridge",
+    "operator": "OR",
+    "conditions": [
+      {"field": "concept", "value": "特徴量", "node_id": "N_WORK_FEATURE"},
+      {"field": "concept", "value": "データ品質", "node_id": "N_WORK_QUALITY"}
+    ],
+    "start_node_ids": ["N_JOB_DE"],
+    "target_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["データエンジニア", "特徴量ストア", "データ品質管理", "MLOps"],
+    "status": "draft",
+    "note": "DEから特徴量/データ品質を介したMLOpsへのブリッジ"
+  },
+  "Q31": {
+    "mode": "graph_expand",
+    "operator": "OR",
+    "conditions": [
+      {"field": "concept", "value": "実験管理", "node_id": "N_WORK_EXPERIMENT"},
+      {"field": "skills", "value": "SageMaker", "node_id": "N_SKILL_SAGEMAKER"}
+    ],
+    "start_node_ids": ["N_JOB_MLOPS"],
+    "relations": ["包含", "関連"],
+    "max_hops": 2,
+    "query_terms": ["MLOps", "学習パイプライン", "実験管理", "MLflow", "SageMaker"],
+    "status": "draft",
+    "note": "MLOps内で学習と実験管理プロセスにフォーカス"
+  },
+  "Q32": {
+    "mode": "global_summary",
+    "operator": "OR",
+    "conditions": [
+      {"field": "skills", "value": "pandas", "node_id": "N_SKILL_PANDAS"}
+    ],
+    "query_terms": ["Pandas", "データ集計", "一緒に使われるツール", "傾向", "共通点"],
+    "status": "draft",
+    "note": "特定スキル（Pandas）を起点とした全体像"
+  },
+  "Q33": {
+    "mode": "global_summary",
+    "operator": "OR",
+    "conditions": [
+      {"field": "domain", "value": "金融"}
+    ],
+    "query_terms": ["金融", "データ", "ML系", "技術スタック", "業務内容", "共通傾向"],
+    "status": "draft",
+    "note": "特定ドメイン（金融）を起点とした全体像"
+  },
+  "Q34": {
+    "mode": "global_summary",
+    "operator": "OR",
+    "conditions": [
+      {"field": "cloud", "value": "GCP"}
+    ],
+    "query_terms": ["GCP", "マネージドサービス", "BigQuery", "Vertex AI", "連携傾向"],
+    "status": "draft",
+    "note": "特定クラウド（GCP）を起点とした全体像"
+  },
+  "Q35": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "データアナリスト"}
+    ],
+    "query_terms": ["データアナリスト"],
+    "status": "draft",
+    "note": "該当なしを返す負例。データエンジニア案件を誤検出しないか確認"
+  },
+  "Q36": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "AIエージェント"}
+    ],
+    "query_terms": ["AIエージェント", "自律型AI"],
+    "status": "draft",
+    "note": "該当なしを返す負例。通常の推論API等をエージェントと誤検出しないか確認"
+  },
+  "Q37": {
+    "mode": "filter",
+    "operator": "AND",
+    "conditions": [
+      {"field": "text", "value": "コンサル"}
+    ],
+    "query_terms": ["コンサル", "コンサルタント", "専門性"],
+    "status": "draft",
+    "note": "該当なしを返す負例。インフラや開発案件をコンサルと誤検出しないか確認"
+  }
+}

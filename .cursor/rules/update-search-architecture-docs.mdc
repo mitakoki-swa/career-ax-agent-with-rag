@@ -1,0 +1,16 @@
+---
+description: Keep search architecture diagrams synchronized with implementation
+alwaysApply: true
+---
+
+# Search Architecture Documentation
+
+When changing RAG, BYOG GraphRAG, LLM Graph, community search, reranking, thresholds, or evaluation flow:
+
+1. Review `docs/poc/検索方式とCLI引数.md`.
+2. Update its Mermaid architecture diagrams in the same change when any input, processing order, branch, score, cache, CLI behavior, or output changes.
+3. Keep diagram labels consistent with the actual script and argument names.
+4. If evaluation scope or decision policy changes, also update:
+   - `docs/poc/rag-vs-graphrag.md`
+   - `docs/adr/0003-検索PoCの評価方針.md`
+5. Mention the documentation update in the implementation summary.
