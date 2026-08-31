@@ -167,7 +167,7 @@ flowchart LR
     ROUTE -->|exact・filter| FILTER["案件列条件・タグ条件<br/>AND / OR"]
     ROUTE -->|graph_expand| EXPAND["起点から双方向BFS<br/>relation・max_hops制限"]
     ROUTE -->|graph_bridge| BRIDGE["起点と目標から探索<br/>接続経路を抽出"]
-    ROUTE -->|global_summary| GLOBAL["コミュニティ要約をベクトル検索<br/>上位summary-k"]
+    ROUTE -->|global_summary<br/>Q13-Q16・Q32-Q34| GLOBAL["コミュニティ要約をベクトル検索<br/>上位summary-k"]
 
     KG --> FILTER
     KG --> EXPAND
@@ -210,15 +210,15 @@ flowchart LR
 
 - `exact / filter / graph_expand / graph_bridge` の候補生成はLocalHashとTitanで変わらない
 - `global_summary` は埋め込みで上位コミュニティを選ぶため、LocalHashとTitanで候補集合も変わり得る
+- 「全体像」に分類したQ13-Q16・Q32-Q34は `global_summary` とし、分類と検索経路を一致させる
 - Graph候補から漏れた案件をrerankで復活させることはできない
-- 現在の順位はVだけで決まり、Gは説明用
 - 通常順位はGを優先し、同じGの候補内をVで並べる。Graph-only順位はVを使わない比較用として併記する
 - rerank前候補とrerank後順位を別々に評価するため、検索漏れと順位不良を切り分けられる
 - RAG planとの差は、Graphのタグ・エッジ・経路を候補生成に使った効果
 
-### LLM生成Graph：現在のlegacy処理
+### LLM生成Graph：plan評価
 
-LLM生成Graphは、Graph構築時にLLMを使うが、検索時にLLM推論はしない。現在は共通のplan評価・rerankへ未統合である。
+LLM生成Graphは、Graph構築時にLLMを使うが、検索時にLLM推論はしない。plan評価ではRAG / BYOGと同じ質問、検索計画、Titan、k、評価指標、JSON形式を使う。
 
 ```mermaid
 flowchart LR
@@ -226,29 +226,32 @@ flowchart LR
     BUILD -->|あり・rebuildなし| CACHE["llm_generated<br/>nodes・edges・tags.csv"]
     BUILD -->|なし または rebuild| LLM["Claude / OpenAI / local仮抽出"]
     LLM --> CACHE
-    CACHE --> KG["LLM生成Knowledge Graph"]
+    CACHE --> CLEAN["relation正規化<br/>従事など → 関連"]
+    CLEAN --> KG["LLM生成Knowledge Graph"]
 
-    Q["質問文"] --> MATCH["質問に含まれるノード名を文字列一致"]
-    MATCH --> WALK["全relationを双方向走査"]
-    KG --> WALK
-    WALK --> IDS["到達ノードの案件ID<br/>案件ID順・最大k件"]
-
-    Q --> TYPE{"質問分類が全体像か"}
-    TYPE -->|全体像| GLOBAL["LLM Graphコミュニティ要約<br/>Titanで上位summary-k"]
-    TYPE -->|その他| IDS
-    SUMMARY["community_summaries/llm.csv"] --> GLOBAL
-    GLOBAL --> RESULT["上位コミュニティ内の案件"]
-    IDS --> LEGACY["従来Recall・Precision・F1"]
-    RESULT --> LEGACY
+    QCSV["questions.csv<br/>質問・正解・評価区分"] --> SPLIT["--eval-split"]
+    SPLIT --> PLANREF["検索計画ID"]
+    PJSON["search_plans.draft.json"] --> ADAPT["評価用Plan変換<br/>BYOG ID → 正規名 → Titan意味検索"]
+    BYOGN["nodes.csv<br/>IDと正規名"] --> ADAPT
+    PLANREF --> ADAPT
+    KG --> ADAPT
+    ADAPT --> MULTI["近いLLM nodeを1対多で解決<br/>1条件内はOR"]
+    MULTI -->|condition node未解決| FALLBACK["node_idを外しvalue条件へフォールバック"]
+    ADAPT -->|start/target未解決| EMPTY["候補0件として解決失敗を記録"]
+    MULTI --> ROUTE["ByogSearcherと同じmode実行<br/>Graph系はLLM専用max-hops"]
+    FALLBACK --> ROUTE
+    KG --> ROUTE
+    SUMMARY["community_summaries/llm.csv<br/>global_summary: Q13-Q16・Q32-Q34"] --> ROUTE
+    ROUTE --> CAND["LLM Graph候補<br/>Candidate Recall・Precision"]
+    CAND --> ORDER["G優先<br/>同じGをTitanのVで順位付け"]
+    ORDER --> METRIC["@5 / @10 / @20<br/>Recall・Precision・F1・nDCG"]
+    EMPTY --> METRIC
+    METRIC --> OUT["共通評価JSON<br/>plan_resolutionを保存"]
 ```
 
-現在のLLM生成Graphでは次がRAG / BYOGの共通評価と異なる。
+Plan変換は評価時だけBYOGの `nodes.csv` をIDと正規名の対応表として使い、語彙の包含一致とTitan類似度で複数のLLMノードへ解決する。複数ノードは同じ条件内ではOR、他条件とはPlanのAND / ORを維持する。完全自律のLLM Graphには存在しない意味合わせなので、`plan_resolution` として解決・部分解決・未解決を記録し、比較結果で明示する。
 
-- SearchPlanを使わない
-- 厳密なAND / ORを使わない
-- 候補内Titan rerankを使わない
-- nDCG、`min-score`、共通JSON出力がない
-- 全体像の結果件数には `--k` が適用されない
+従来の「質問に含まれるノード名を文字列一致し、全relationを双方向走査する」処理は `--eval-mode legacy` と単発 `--query` に残す。
 
 ### 比較時に揃う部分・異なる部分
 
@@ -258,13 +261,16 @@ flowchart TB
     COMMON --> RN["RAG natural<br/>全案件をベクトル検索"]
     COMMON --> RP["RAG plan<br/>案件列で候補生成"]
     COMMON --> BP["BYOG plan<br/>案件列 + Graphで候補生成"]
+    COMMON --> LP["LLM Graph plan<br/>TitanでPlanを1対多変換してGraph候補生成"]
 
     RN --> SAME["同じProjectReranker・min-score・@k評価"]
     RP --> SAME
     BP --> SAME
+    LP --> SAME
 
     RP -. "検索計画の効果" .-> RN
     BP -. "Graph候補生成の効果" .-> RP
+    LP -. "LLM生成Graphと固定BYOGの差" .-> BP
 ```
 
 ## 3. ベクトルRAG
@@ -717,25 +723,28 @@ python scripts/build_graph_llm.py
 → 検索時はPythonがGraphを走査
 ```
 
-### 現在検索できること
+### legacyで検索できること
 
 - 質問文に名前が含まれるノードを起点にする
 - 全関係を双方向に辿る
 - 到達ノードへタグ付けされた案件を返す
 - 全体像質問ではコミュニティ要約を使う
 
-### 現在できないこと
+### plan評価で検索できること
 
-- 検索計画の実行
+- `exact / filter / graph_expand / graph_bridge / global_summary`
 - 厳密なAND / OR
-- BYOGと同じTitan rerank
+- Graph-first + Titan tie-break
 - `min-score`
-- `k=5/10/20` の共通評価
-- nDCG
-- 共通JSON出力
-- Graph生成結果の再現性保証
+- `k=5/10/20` のCandidate指標、Recall、Precision、F1、nDCG
+- No-answer accuracyと分類別平均
+- BYOG / RAGと同じJSON構造
 
-したがって、LLM生成Graphは現在のPoC Aの正式なRAG対BYOG比較には含めない。
+固定オントロジー用のノードIDはLLM Graphにそのまま存在しないため、評価時に `nodes.csv` の正規名を語彙一致とTitanで1対多のLLMノードへ変換する。条件ノードが見つからない場合はvalue条件へフォールバックし、Graph起点・終点が見つからない場合は候補0件として採点する。解決先、ノード名、種別、類似度、語彙一致の有無はJSONの `plan_resolution.resolution_details` に保存する。
+
+生成時またはCSV読込時に、`従事 / 担当 / 連携` は `関連`、`利用 / 活用` は `使用`、`属する` は `包含` へ正規化する。未知relationも探索許可リストを無制限に広げず `関連` へ倒す。
+
+Graph再生成結果の再現性は保証されない。正式比較では生成済み `data/llm_generated/*.csv` を固定し、`--rebuild` を付けない。
 
 ### `--llm local|bedrock|openai`
 
@@ -769,17 +778,57 @@ OpenAI使用時のGraph抽出方式。
 
 ### `--eval`
 
-従来方式で一括評価する。
+一括評価を有効にする。
+
+### `--eval-mode legacy|plan|both`
+
+- `legacy`：従来の文字列一致と全relation走査
+- `plan`：RAG / BYOGと共通の検索計画・評価指標
+- `both`：両方
+
+### `--eval-split development|holdout|all`
+
+評価区分を選ぶ。正式比較は `holdout` を使う。
 
 ### `--k`
 
-ローカルGraph検索結果の最大件数。デフォルトは28。
+legacyのローカルGraph検索結果の最大件数。デフォルトは28。
 
 全体像質問のコミュニティ検索にはこのkが適用されず、上位コミュニティに含まれる案件が返る。
+
+### `--ks`
+
+plan評価のk一覧。正式比較は `5,10,20`。
+
+### `--plans`
+
+plan評価に使う検索計画JSON。デフォルトは `search_plans.draft.json`。
+
+### `--reranker local|bedrock|openai`
+
+plan評価の候補順位付けに使う埋め込み。正式比較はBYOG / RAGと同じ `bedrock`。
+
+### `--min-score` / `--no-cache` / `--output`
+
+RAG / BYOGのplan評価と同じ意味である。
+
+### `--node-top-k` / `--node-min-score`
+
+固定オントロジーの1ノードに対応付けるLLMノードの最大数と、Titanコサイン類似度の下限。デフォルトは `5` と `0.55`。職種・業務・スキルの種別を使って意味検索の候補を制限する。値はdevelopmentで決定してからholdoutへ適用する。
+
+### `--llm-max-hops`
+
+LLM Graphの `graph_expand / graph_bridge` に最低限適用するhop数。デフォルトは `4`。元Planの値のほうが大きい場合は元Planを維持する。
 
 ### `--summary-k`
 
 全体像質問で参照するコミュニティ数。
+
+正式なholdout比較例：
+
+```powershell
+poetry run python scripts/build_graph_llm.py --eval --eval-mode plan --eval-split holdout --reranker bedrock --ks 5,10,20 --summary-k 4 --output data/eval_results/llm-holdout.json
+```
 
 ## 9. コミュニティ要約
 
@@ -866,10 +915,11 @@ RAGとBYOGで同じ値を機械的に使う前に、候補集合の違いとス�
 - 検索計画はまだ `draft`
 - Titan用 `min-score` は未固定
 - 候補全体のRecallとPrecisionは出力するが、検索計画自体が開発質問に過学習していないかは別途確認が必要
-- LLM生成Graphは共通評価方式へ未対応
+- LLM生成Graphのplan評価は、BYOG正規名による評価用の意味合わせを含む
+- LLM生成Graphの再構築は非決定的なため、比較中は生成CSVを固定する
 - 現在の案件と質問は合成データ
 - RAG planとBYOG planは同じ計画を参照するが、実行可能な条件が異なる
 - BYOGが候補から落とした案件をTitanは救えない
 - `global_summary` はコミュニティ分割と `summary-k` に依存する
 
-この段階で検証できるのは、「理想的な検索計画が与えられた場合に、RAGとBYOGの検索器がどのような候補と順位を返すか」である。質問から検索計画を作る能力は、PoC Bで別に評価する。
+この段階で検証できるのは、「理想的な検索計画が与えられた場合に、RAG、BYOG、LLM生成Graphの検索器がどのような候補と順位を返すか」である。質問から検索計画を作る能力は、PoC Bで別に評価する。

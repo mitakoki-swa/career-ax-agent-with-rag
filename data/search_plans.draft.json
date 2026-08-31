@@ -149,46 +149,34 @@
     "note": "全体像質問はコミュニティ要約で候補生成"
   },
   "Q14": {
-    "mode": "graph_bridge",
+    "mode": "global_summary",
     "operator": "AND",
     "conditions": [
       {"field": "role", "value": "データエンジニア", "node_id": "N_JOB_DE"}
     ],
-    "start_node_ids": ["N_JOB_DE"],
-    "target_node_ids": ["N_JOB_MLOPS"],
-    "relations": ["包含", "関連"],
-    "max_hops": 2,
     "query_terms": ["データ基盤", "MLOps", "特徴量", "データ品質"],
     "status": "draft",
-    "note": "データエンジニア案件に限定した職種間ブリッジ"
+    "note": "データエンジニア案件に限定したコミュニティ横断要約"
   },
   "Q15": {
-    "mode": "graph_bridge",
+    "mode": "global_summary",
     "operator": "AND",
     "conditions": [
       {"field": "role", "value": "インフラエンジニア", "node_id": "N_JOB_INFRA"}
     ],
-    "start_node_ids": ["N_JOB_INFRA"],
-    "target_node_ids": ["N_JOB_MLOPS"],
-    "relations": ["包含", "関連"],
-    "max_hops": 2,
     "query_terms": ["インフラ", "ML", "Kubernetes", "GPU", "推論基盤", "監視"],
     "status": "draft",
-    "note": "MLと接続するインフラ案件だけに限定"
+    "note": "MLと接続するインフラ案件のコミュニティ横断要約"
   },
   "Q16": {
-    "mode": "graph_bridge",
+    "mode": "global_summary",
     "operator": "AND",
     "conditions": [
       {"field": "role", "value": "ソフトウェアエンジニア", "node_id": "N_JOB_SWE"}
     ],
-    "start_node_ids": ["N_JOB_SWE"],
-    "target_node_ids": ["N_JOB_MLOPS"],
-    "relations": ["包含", "関連"],
-    "max_hops": 3,
     "query_terms": ["アプリ開発", "MLOps", "推論API", "モデル配信"],
     "status": "draft",
-    "note": "推論API・モデル配信を介した職種間ブリッジ"
+    "note": "推論API・モデル配信を介した領域のコミュニティ横断要約"
   },
   "Q17": {
     "mode": "filter",

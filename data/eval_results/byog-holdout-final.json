@@ -1,0 +1,3116 @@
+{
+  "evaluation_split": "holdout",
+  "runs": [
+    {
+      "system": "byog",
+      "mode": "plan",
+      "ranking_strategy": "graph_first_vector_tiebreak",
+      "plan_resolution": {},
+      "ks": [
+        5,
+        10,
+        20
+      ],
+      "questions": [
+        {
+          "question_id": "Q21",
+          "category": "事実引き",
+          "evaluation_split": "holdout",
+          "plan_id": "Q21",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P012",
+            "P025"
+          ],
+          "candidates": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              "P012",
+              "P025"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P012",
+              "score": 1.0,
+              "vector_score": 0.4113915133186562,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_BI"
+              ],
+              "reasons": [
+                "condition:N_WORK_BI"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P025",
+              "score": 1.0,
+              "vector_score": 0.22995429054580296,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_BI"
+              ],
+              "reasons": [
+                "condition:N_WORK_BI"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P012",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_BI"
+              ],
+              "reasons": [
+                "condition:N_WORK_BI"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P025",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_BI"
+              ],
+              "reasons": [
+                "condition:N_WORK_BI"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q22",
+          "category": "事実引き",
+          "evaluation_split": "holdout",
+          "plan_id": "Q22",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P008",
+            "P009",
+            "P024"
+          ],
+          "candidates": {
+            "candidate_count": 3,
+            "candidate_ids": [
+              "P008",
+              "P009",
+              "P024"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P024",
+              "score": 1.0,
+              "vector_score": 0.2531650170698698,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_SWE"
+              ],
+              "reasons": [
+                "condition:N_JOB_SWE"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P009",
+              "score": 1.0,
+              "vector_score": 0.2415299315314036,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_SWE"
+              ],
+              "reasons": [
+                "condition:N_JOB_SWE"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P008",
+              "score": 1.0,
+              "vector_score": 0.15406626521385006,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_SWE"
+              ],
+              "reasons": [
+                "condition:N_JOB_SWE"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P008",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_SWE"
+              ],
+              "reasons": [
+                "condition:N_JOB_SWE"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P009",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_SWE"
+              ],
+              "reasons": [
+                "condition:N_JOB_SWE"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P024",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_SWE"
+              ],
+              "reasons": [
+                "condition:N_JOB_SWE"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q23",
+          "category": "事実引き",
+          "evaluation_split": "holdout",
+          "plan_id": "Q23",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P001",
+            "P002",
+            "P003",
+            "P004",
+            "P005",
+            "P007",
+            "P008",
+            "P010",
+            "P012",
+            "P013",
+            "P016",
+            "P017",
+            "P018",
+            "P019",
+            "P020",
+            "P021",
+            "P023",
+            "P025",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 19,
+            "candidate_ids": [
+              "P001",
+              "P002",
+              "P003",
+              "P004",
+              "P005",
+              "P007",
+              "P008",
+              "P010",
+              "P012",
+              "P013",
+              "P016",
+              "P017",
+              "P018",
+              "P019",
+              "P020",
+              "P021",
+              "P023",
+              "P025",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P012",
+              "score": 1.0,
+              "vector_score": 0.3378858035342663,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 1.0,
+              "vector_score": 0.31314418563547247,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P007",
+              "score": 1.0,
+              "vector_score": 0.3001041749126846,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P016",
+              "score": 1.0,
+              "vector_score": 0.2990460637673286,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P005",
+              "score": 1.0,
+              "vector_score": 0.2912500776493345,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 6,
+              "project_id": "P008",
+              "score": 1.0,
+              "vector_score": 0.28609492221499133,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 7,
+              "project_id": "P017",
+              "score": 1.0,
+              "vector_score": 0.27997867907730195,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 8,
+              "project_id": "P020",
+              "score": 1.0,
+              "vector_score": 0.2796497651304269,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 9,
+              "project_id": "P019",
+              "score": 1.0,
+              "vector_score": 0.2771783648922965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 10,
+              "project_id": "P025",
+              "score": 1.0,
+              "vector_score": 0.26464797997037437,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 11,
+              "project_id": "P004",
+              "score": 1.0,
+              "vector_score": 0.2362204402454138,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 12,
+              "project_id": "P003",
+              "score": 1.0,
+              "vector_score": 0.23018773852530375,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 13,
+              "project_id": "P001",
+              "score": 1.0,
+              "vector_score": 0.22921064897014995,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 14,
+              "project_id": "P018",
+              "score": 1.0,
+              "vector_score": 0.2228828849652138,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 15,
+              "project_id": "P021",
+              "score": 1.0,
+              "vector_score": 0.21800248851435583,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 16,
+              "project_id": "P010",
+              "score": 1.0,
+              "vector_score": 0.17603636320182114,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 17,
+              "project_id": "P023",
+              "score": 1.0,
+              "vector_score": 0.16493156399838485,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 18,
+              "project_id": "P013",
+              "score": 1.0,
+              "vector_score": 0.1626848300915358,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 19,
+              "project_id": "P002",
+              "score": 0.5,
+              "vector_score": 0.24986208503460833,
+              "graph_score": 0.5,
+              "matched_conditions": [
+                "cloud=AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P001",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P003",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P004",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P005",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P007",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 6,
+              "project_id": "P008",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 7,
+              "project_id": "P010",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 8,
+              "project_id": "P012",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 9,
+              "project_id": "P013",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 10,
+              "project_id": "P016",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 11,
+              "project_id": "P017",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 12,
+              "project_id": "P018",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 13,
+              "project_id": "P019",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 14,
+              "project_id": "P020",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 15,
+              "project_id": "P021",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 16,
+              "project_id": "P023",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 17,
+              "project_id": "P025",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 18,
+              "project_id": "P027",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 19,
+              "project_id": "P002",
+              "score": 0.5,
+              "graph_score": 0.5,
+              "matched_conditions": [
+                "cloud=AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.2631578947368421,
+              "precision": 1.0,
+              "f1": 0.4166666666666667,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.5263157894736842,
+              "precision": 1.0,
+              "f1": 0.6896551724137931,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.2631578947368421,
+              "precision": 1.0,
+              "f1": 0.4166666666666667,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.5263157894736842,
+              "precision": 1.0,
+              "f1": 0.6896551724137931,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q24",
+          "category": "横断",
+          "evaluation_split": "holdout",
+          "plan_id": "Q24",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P015"
+          ],
+          "candidates": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              "P015"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P015",
+              "score": 1.0,
+              "vector_score": 0.5189937993730295,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP",
+                "N_JOB_INFRA",
+                "N_SKILL_K8S"
+              ],
+              "reasons": [
+                "condition:cloud=GCP",
+                "condition:N_JOB_INFRA",
+                "condition:N_SKILL_K8S"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P015",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP",
+                "N_JOB_INFRA",
+                "N_SKILL_K8S"
+              ],
+              "reasons": [
+                "condition:cloud=GCP",
+                "condition:N_JOB_INFRA",
+                "condition:N_SKILL_K8S"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q25",
+          "category": "横断",
+          "evaluation_split": "holdout",
+          "plan_id": "Q25",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P002",
+            "P020"
+          ],
+          "candidates": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              "P002",
+              "P020"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P020",
+              "score": 1.0,
+              "vector_score": 0.48230379189012296,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_WORK_MONITOR"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_WORK_MONITOR"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P002",
+              "score": 1.0,
+              "vector_score": 0.4610093643695075,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_WORK_MONITOR"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_WORK_MONITOR"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P002",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_WORK_MONITOR"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_WORK_MONITOR"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P020",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_WORK_MONITOR"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_WORK_MONITOR"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q26",
+          "category": "横断",
+          "evaluation_split": "holdout",
+          "plan_id": "Q26",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P003",
+            "P010",
+            "P019",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 4,
+            "candidate_ids": [
+              "P003",
+              "P010",
+              "P019",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P003",
+              "score": 1.0,
+              "vector_score": 0.511066573372638,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 1.0,
+              "vector_score": 0.4641124989440345,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P019",
+              "score": 1.0,
+              "vector_score": 0.43897813959830245,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P010",
+              "score": 1.0,
+              "vector_score": 0.42872579693560736,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P003",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P010",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P019",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P027",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_SKILL_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_SKILL_AIRFLOW"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q27",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q27",
+          "plan_mode": "graph_bridge",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P008",
+            "P024"
+          ],
+          "candidates": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              "P008",
+              "P024"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P008",
+              "score": 1.0,
+              "vector_score": 0.2704290926822138,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_INFER_API"
+              ],
+              "reasons": [
+                "graph:N_JOB_SWE:distance=0"
+              ],
+              "path": [
+                "N_JOB_SWE",
+                "N_WORK_INFER_API",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P024",
+              "score": 1.0,
+              "vector_score": 0.2520793983910124,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_INFER_API"
+              ],
+              "reasons": [
+                "graph:N_JOB_SWE:distance=0"
+              ],
+              "path": [
+                "N_JOB_SWE",
+                "N_WORK_INFER_API",
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P008",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_INFER_API"
+              ],
+              "reasons": [
+                "graph:N_JOB_SWE:distance=0"
+              ],
+              "path": [
+                "N_JOB_SWE",
+                "N_WORK_INFER_API",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P024",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_INFER_API"
+              ],
+              "reasons": [
+                "graph:N_JOB_SWE:distance=0"
+              ],
+              "path": [
+                "N_JOB_SWE",
+                "N_WORK_INFER_API",
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q28",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q28",
+          "plan_mode": "graph_bridge",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P013",
+            "P018",
+            "P021"
+          ],
+          "candidates": {
+            "candidate_count": 5,
+            "candidate_ids": [
+              "P004",
+              "P013",
+              "P015",
+              "P018",
+              "P021"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 0.6,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P021",
+              "score": 1.0,
+              "vector_score": 0.6310318067233202,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_TRAIN_INFRA",
+                "N_SKILL_GPU"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P004",
+              "score": 1.0,
+              "vector_score": 0.48649943225559683,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_GPU"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P015",
+              "score": 1.0,
+              "vector_score": 0.4766242078909393,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_GPU"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P018",
+              "score": 1.0,
+              "vector_score": 0.46166743751729755,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_TRAIN_INFRA"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 5,
+              "project_id": "P013",
+              "score": 1.0,
+              "vector_score": 0.42363869470379767,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_TRAIN_INFRA"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P004",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_GPU"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P013",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_TRAIN_INFRA"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P015",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_GPU"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P018",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_TRAIN_INFRA"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 5,
+              "project_id": "P021",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_TRAIN_INFRA",
+                "N_SKILL_GPU"
+              ],
+              "reasons": [
+                "graph:N_JOB_INFRA:distance=0"
+              ],
+              "path": [
+                "N_JOB_INFRA",
+                "N_WORK_SERVING",
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 0.6,
+              "f1": 0.7499999999999999,
+              "ndcg": 0.6797310500037655
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 0.6,
+              "f1": 0.7499999999999999,
+              "ndcg": 0.6797310500037655
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 0.6,
+              "f1": 0.7499999999999999,
+              "ndcg": 0.6797310500037655
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 0.6,
+              "f1": 0.7499999999999999,
+              "ndcg": 0.8529278650606567
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 0.6,
+              "f1": 0.7499999999999999,
+              "ndcg": 0.8529278650606567
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 0.6,
+              "f1": 0.7499999999999999,
+              "ndcg": 0.8529278650606567
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q29",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q29",
+          "plan_mode": "graph_expand",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P016"
+          ],
+          "candidates": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              "P016"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P016",
+              "score": 1.0,
+              "vector_score": 0.5275030043629104,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_MLOPS",
+                "N_SKILL_JETSON"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P016",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_JOB_MLOPS",
+                "N_SKILL_JETSON"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q30",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q30",
+          "plan_mode": "graph_bridge",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P006",
+            "P011",
+            "P019",
+            "P022",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 7,
+            "candidate_ids": [
+              "P006",
+              "P010",
+              "P011",
+              "P019",
+              "P022",
+              "P027",
+              "P028"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 0.7142857142857143,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P019",
+              "score": 1.0,
+              "vector_score": 0.41566783486568337,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_QUALITY"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 1.0,
+              "vector_score": 0.393552534285291,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P006",
+              "score": 1.0,
+              "vector_score": 0.3854966689407586,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P022",
+              "score": 1.0,
+              "vector_score": 0.33809230552036845,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 5,
+              "project_id": "P011",
+              "score": 1.0,
+              "vector_score": 0.30568291663133507,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 6,
+              "project_id": "P010",
+              "score": 0.5,
+              "vector_score": 0.3520001507747659,
+              "graph_score": 0.5,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_WORK_FEATURE:distance=1"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 7,
+              "project_id": "P028",
+              "score": 0.5,
+              "vector_score": 0.2042733031997189,
+              "graph_score": 0.5,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_WORK_FEATURE:distance=1"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P006",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P011",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P019",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_QUALITY"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P022",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 5,
+              "project_id": "P027",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_JOB_DE:distance=0"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 6,
+              "project_id": "P010",
+              "score": 0.5,
+              "graph_score": 0.5,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_WORK_FEATURE:distance=1"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 7,
+              "project_id": "P028",
+              "score": 0.5,
+              "graph_score": 0.5,
+              "matched_conditions": [
+                "N_WORK_FEATURE"
+              ],
+              "reasons": [
+                "graph:N_WORK_FEATURE:distance=1"
+              ],
+              "path": [
+                "N_JOB_DE",
+                "N_WORK_FEATURE",
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 0.7142857142857143,
+              "f1": 0.8333333333333333,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 0.7142857142857143,
+              "f1": 0.8333333333333333,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 0.7142857142857143,
+              "f1": 0.8333333333333333,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 0.7142857142857143,
+              "f1": 0.8333333333333333,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q31",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q31",
+          "plan_mode": "graph_expand",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P001",
+            "P003",
+            "P014",
+            "P023"
+          ],
+          "candidates": {
+            "candidate_count": 4,
+            "candidate_ids": [
+              "P001",
+              "P003",
+              "P014",
+              "P023"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P001",
+              "score": 1.0,
+              "vector_score": 0.7453587989329727,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_EXPERIMENT",
+                "N_SKILL_SAGEMAKER"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P014",
+              "score": 1.0,
+              "vector_score": 0.5835041963926965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_EXPERIMENT"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P003",
+              "score": 1.0,
+              "vector_score": 0.43544410364691866,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_EXPERIMENT"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P023",
+              "score": 1.0,
+              "vector_score": 0.3870159796351275,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_SAGEMAKER"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P001",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_EXPERIMENT",
+                "N_SKILL_SAGEMAKER"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P003",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_EXPERIMENT"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P014",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_WORK_EXPERIMENT"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P023",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_SAGEMAKER"
+              ],
+              "reasons": [
+                "graph:N_JOB_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_JOB_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q32",
+          "category": "全体像",
+          "evaluation_split": "holdout",
+          "plan_id": "Q32",
+          "plan_mode": "global_summary",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P012",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              "P012",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P012",
+              "score": 0.3419754691681018,
+              "vector_score": 0.3419754691681018,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_PANDAS"
+              ],
+              "reasons": [
+                "condition:N_SKILL_PANDAS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 0.22729700665479965,
+              "vector_score": 0.22729700665479965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SKILL_PANDAS"
+              ],
+              "reasons": [
+                "condition:N_SKILL_PANDAS"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q33",
+          "category": "全体像",
+          "evaluation_split": "holdout",
+          "plan_id": "Q33",
+          "plan_mode": "global_summary",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P003",
+            "P012",
+            "P017",
+            "P019",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 5,
+            "candidate_ids": [
+              "P003",
+              "P012",
+              "P017",
+              "P019",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P027",
+              "score": 0.31371938468248406,
+              "vector_score": 0.31371938468248406,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P012",
+              "score": 0.2744361236809431,
+              "vector_score": 0.2744361236809431,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P017",
+              "score": 0.22213753080321394,
+              "vector_score": 0.22213753080321394,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P003",
+              "score": 0.21795716082312788,
+              "vector_score": 0.21795716082312788,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P019",
+              "score": 0.1996122262211136,
+              "vector_score": 0.1996122262211136,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q34",
+          "category": "全体像",
+          "evaluation_split": "holdout",
+          "plan_id": "Q34",
+          "plan_mode": "global_summary",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P006",
+            "P011",
+            "P015",
+            "P022",
+            "P024",
+            "P028"
+          ],
+          "candidates": {
+            "candidate_count": 6,
+            "candidate_ids": [
+              "P006",
+              "P011",
+              "P015",
+              "P022",
+              "P024",
+              "P028"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P011",
+              "score": 0.4309208521102219,
+              "vector_score": 0.4309208521102219,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P028",
+              "score": 0.405505270770923,
+              "vector_score": 0.405505270770923,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P022",
+              "score": 0.38850114860481577,
+              "vector_score": 0.38850114860481577,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P006",
+              "score": 0.379633004500692,
+              "vector_score": 0.379633004500692,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P024",
+              "score": 0.37765866800964626,
+              "vector_score": 0.37765866800964626,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 6,
+              "project_id": "P015",
+              "score": 0.31374349448572897,
+              "vector_score": 0.31374349448572897,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.8333333333333334,
+              "precision": 1.0,
+              "f1": 0.9090909090909091,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q35",
+          "category": "該当なし",
+          "evaluation_split": "holdout",
+          "plan_id": "Q35",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": null,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": true
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {},
+          "no_answer_correct": true
+        },
+        {
+          "question_id": "Q36",
+          "category": "該当なし",
+          "evaluation_split": "holdout",
+          "plan_id": "Q36",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": null,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": true
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {},
+          "no_answer_correct": true
+        },
+        {
+          "question_id": "Q37",
+          "category": "該当なし",
+          "evaluation_split": "holdout",
+          "plan_id": "Q37",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": null,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": true
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {},
+          "no_answer_correct": true
+        }
+      ],
+      "summary": {
+        "positive_questions": 14,
+        "metrics": {
+          "5": {
+            "recall": 0.9354636591478698,
+            "precision": 0.9714285714285714,
+            "f1": 0.9339826839826839,
+            "ndcg": 0.9894948475043327
+          },
+          "10": {
+            "recall": 0.9661654135338347,
+            "precision": 0.9510204081632653,
+            "f1": 0.9480706075533663,
+            "ndcg": 0.9894948475043327
+          },
+          "20": {
+            "recall": 1.0,
+            "precision": 0.9510204081632653,
+            "f1": 0.9702380952380952,
+            "ndcg": 0.9894948475043327
+          }
+        },
+        "graph_only": {
+          "positive_questions": 11,
+          "metrics": {
+            "5": {
+              "recall": 0.9330143540669856,
+              "precision": 0.9636363636363636,
+              "f1": 0.9242424242424242,
+              "ndcg": 0.9708846409094334
+            },
+            "10": {
+              "recall": 0.9569377990430623,
+              "precision": 0.9376623376623375,
+              "f1": 0.9339080459770116,
+              "ndcg": 0.9708846409094334
+            },
+            "20": {
+              "recall": 1.0,
+              "precision": 0.9376623376623375,
+              "f1": 0.9621212121212122,
+              "ndcg": 0.9708846409094334
+            }
+          }
+        },
+        "no_answer": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "candidate": {
+          "positive_questions": 14,
+          "recall": 1.0,
+          "precision": 0.9510204081632653
+        },
+        "categories": {
+          "事実引き": {
+            "questions": 3,
+            "positive_questions": 3,
+            "candidate": {
+              "recall": 1.0,
+              "precision": 1.0
+            },
+            "metrics": {
+              "5": {
+                "recall": 0.7543859649122807,
+                "precision": 1.0,
+                "f1": 0.8055555555555555,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 0.8421052631578947,
+                "precision": 1.0,
+                "f1": 0.896551724137931,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            },
+            "graph_only_questions": 3,
+            "graph_only_metrics": {
+              "5": {
+                "recall": 0.7543859649122807,
+                "precision": 1.0,
+                "f1": 0.8055555555555555,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 0.8421052631578947,
+                "precision": 1.0,
+                "f1": 0.896551724137931,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            }
+          },
+          "全体像": {
+            "questions": 3,
+            "positive_questions": 3,
+            "candidate": {
+              "recall": 1.0,
+              "precision": 1.0
+            },
+            "metrics": {
+              "5": {
+                "recall": 0.9444444444444445,
+                "precision": 1.0,
+                "f1": 0.9696969696969697,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            }
+          },
+          "周辺": {
+            "questions": 5,
+            "positive_questions": 5,
+            "candidate": {
+              "recall": 1.0,
+              "precision": 0.862857142857143
+            },
+            "metrics": {
+              "5": {
+                "recall": 1.0,
+                "precision": 0.9199999999999999,
+                "f1": 0.95,
+                "ndcg": 0.9705855730121314
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 0.862857142857143,
+                "f1": 0.9166666666666666,
+                "ndcg": 0.9705855730121314
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 0.862857142857143,
+                "f1": 0.9166666666666666,
+                "ndcg": 0.9705855730121314
+              }
+            },
+            "graph_only_questions": 5,
+            "graph_only_metrics": {
+              "5": {
+                "recall": 1.0,
+                "precision": 0.9199999999999999,
+                "f1": 0.95,
+                "ndcg": 0.935946210000753
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 0.862857142857143,
+                "f1": 0.9166666666666666,
+                "ndcg": 0.935946210000753
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 0.862857142857143,
+                "f1": 0.9166666666666666,
+                "ndcg": 0.935946210000753
+              }
+            }
+          },
+          "横断": {
+            "questions": 3,
+            "positive_questions": 3,
+            "candidate": {
+              "recall": 1.0,
+              "precision": 1.0
+            },
+            "metrics": {
+              "5": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            },
+            "graph_only_questions": 3,
+            "graph_only_metrics": {
+              "5": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            }
+          },
+          "該当なし": {
+            "questions": 3,
+            "positive_questions": 0,
+            "no_answer": {
+              "correct": 3,
+              "total": 3,
+              "accuracy": 1.0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -163,6 +163,8 @@ def run_plan_eval(
     min_score: float,
     communities=None,
     summary_k: int = 3,
+    system: str = "byog",
+    plan_resolution: dict[str, dict[str, object]] | None = None,
 ) -> dict[str, object]:
     communities = communities or []
     totals = {k: [0.0, 0.0, 0.0, 0.0] for k in ks}
@@ -173,7 +175,7 @@ def run_plan_eval(
     no_answer_correct = 0
     records: list[dict[str, object]] = []
     print(
-        f"\n--- BYOG 計画評価 + Graph-first/Titan tie-break "
+        f"\n--- {system.upper()} Graph 計画評価 + Graph-first/Titan tie-break "
         f"k={','.join(map(str, ks))} "
         f"summary-k={summary_k} ---"
     )
@@ -362,9 +364,10 @@ def run_plan_eval(
     summary["categories"] = categories
     print_category_summary(categories)
     return {
-        "system": "byog",
+        "system": system,
         "mode": "plan",
         "ranking_strategy": "graph_first_vector_tiebreak",
+        "plan_resolution": plan_resolution or {},
         "ks": list(ks),
         "questions": records,
         "summary": summary,

@@ -1,0 +1,3580 @@
+{
+  "evaluation_split": "holdout",
+  "runs": [
+    {
+      "system": "llm",
+      "mode": "plan",
+      "ranking_strategy": "graph_first_vector_tiebreak",
+      "plan_resolution": {
+        "Q21": {
+          "status": "partial",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {},
+          "resolution_details": {},
+          "unresolved_condition_node_ids": [
+            "N_WORK_BI"
+          ],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q22": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {
+            "N_JOB_SWE": [
+              "N_ソフトウェアエンジニア"
+            ]
+          },
+          "resolution_details": {
+            "N_JOB_SWE": [
+              {
+                "node_id": "N_ソフトウェアエンジニア",
+                "name": "ソフトウェアエンジニア",
+                "kind": "職種",
+                "score": 0.8771308723849544,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q23": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {
+            "N_SKILL_AWS": [
+              "N_AWS"
+            ]
+          },
+          "resolution_details": {
+            "N_SKILL_AWS": [
+              {
+                "node_id": "N_AWS",
+                "name": "AWS",
+                "kind": "スキル",
+                "score": 0.5362135597714567,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q24": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {
+            "N_JOB_INFRA": [
+              "N_インフラエンジニア"
+            ],
+            "N_SKILL_K8S": [
+              "N_KUBERNETES化",
+              "N_KUBERNETES",
+              "N_KUBERNETES_JOB実装",
+              "N_学習ジョブのKUBERNETES定期実行"
+            ]
+          },
+          "resolution_details": {
+            "N_JOB_INFRA": [
+              {
+                "node_id": "N_インフラエンジニア",
+                "name": "インフラエンジニア",
+                "kind": "職種",
+                "score": 0.899463092507861,
+                "lexical_match": true
+              }
+            ],
+            "N_SKILL_K8S": [
+              {
+                "node_id": "N_KUBERNETES化",
+                "name": "Kubernetes化",
+                "kind": "業務",
+                "score": 0.6430753919254316,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_KUBERNETES",
+                "name": "Kubernetes",
+                "kind": "スキル",
+                "score": 0.6415887133708253,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_KUBERNETES_JOB実装",
+                "name": "Kubernetes Job実装",
+                "kind": "業務",
+                "score": 0.4698948755252883,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_学習ジョブのKUBERNETES定期実行",
+                "name": "学習ジョブのKubernetes定期実行",
+                "kind": "業務",
+                "score": 0.41947541695331875,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q25": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {
+            "N_WORK_MONITOR": [
+              "N_モデル監視",
+              "N_モデルエンドポイント監視"
+            ]
+          },
+          "resolution_details": {
+            "N_WORK_MONITOR": [
+              {
+                "node_id": "N_モデル監視",
+                "name": "モデル監視",
+                "kind": "業務",
+                "score": 0.8777614045751627,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_モデルエンドポイント監視",
+                "name": "モデルエンドポイント監視",
+                "kind": "業務",
+                "score": 0.5678771560708074,
+                "lexical_match": false
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q26": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {
+            "N_SKILL_AIRFLOW": [
+              "N_AIRFLOW"
+            ]
+          },
+          "resolution_details": {
+            "N_SKILL_AIRFLOW": [
+              {
+                "node_id": "N_AIRFLOW",
+                "name": "Airflow",
+                "kind": "スキル",
+                "score": 0.6406163702186187,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q27": {
+          "status": "resolved",
+          "original_mode": "graph_bridge",
+          "adapted_mode": "graph_bridge",
+          "original_max_hops": 2,
+          "adapted_max_hops": 4,
+          "resolved_node_ids": {
+            "N_WORK_INFER_API": [
+              "N_推論API",
+              "N_推薦モデル推論API呼び出し",
+              "N_画像診断モデルの推論API実装",
+              "N_推論"
+            ],
+            "N_JOB_SWE": [
+              "N_ソフトウェアエンジニア"
+            ],
+            "N_JOB_MLOPS": [
+              "N_MLOPS",
+              "N_MLOPSエンジニア"
+            ]
+          },
+          "resolution_details": {
+            "N_WORK_INFER_API": [
+              {
+                "node_id": "N_推論API",
+                "name": "推論API",
+                "kind": "その他",
+                "score": 0.8171720402481245,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_推薦モデル推論API呼び出し",
+                "name": "推薦モデル推論API呼び出し",
+                "kind": "業務",
+                "score": 0.582365936328417,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_画像診断モデルの推論API実装",
+                "name": "画像診断モデルの推論API実装",
+                "kind": "業務",
+                "score": 0.444092225408064,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_推論",
+                "name": "推論",
+                "kind": "業務",
+                "score": 0.43929226172778524,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_SWE": [
+              {
+                "node_id": "N_ソフトウェアエンジニア",
+                "name": "ソフトウェアエンジニア",
+                "kind": "職種",
+                "score": 0.8771308723849544,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_MLOPS": [
+              {
+                "node_id": "N_MLOPS",
+                "name": "MLOps",
+                "kind": "その他",
+                "score": 0.7703355684310792,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_MLOPSエンジニア",
+                "name": "MLOpsエンジニア",
+                "kind": "職種",
+                "score": 0.6137611628220268,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q28": {
+          "status": "resolved",
+          "original_mode": "graph_bridge",
+          "adapted_mode": "graph_bridge",
+          "original_max_hops": 2,
+          "adapted_max_hops": 4,
+          "resolved_node_ids": {
+            "N_WORK_TRAIN_INFRA": [
+              "N_機械学習基盤"
+            ],
+            "N_SKILL_GPU": [
+              "N_GPU",
+              "N_GPUノ_ド管理",
+              "N_再学習用GPUクラスタ",
+              "N_GPUノ_ド払い出し"
+            ],
+            "N_JOB_INFRA": [
+              "N_インフラエンジニア"
+            ],
+            "N_JOB_MLOPS": [
+              "N_MLOPS",
+              "N_MLOPSエンジニア"
+            ]
+          },
+          "resolution_details": {
+            "N_WORK_TRAIN_INFRA": [
+              {
+                "node_id": "N_機械学習基盤",
+                "name": "機械学習基盤",
+                "kind": "その他",
+                "score": 0.5112260212982176,
+                "lexical_match": true
+              }
+            ],
+            "N_SKILL_GPU": [
+              {
+                "node_id": "N_GPU",
+                "name": "GPU",
+                "kind": "スキル",
+                "score": 0.594762214158001,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_GPUノ_ド管理",
+                "name": "GPUノード管理",
+                "kind": "業務",
+                "score": 0.37544920736324494,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_再学習用GPUクラスタ",
+                "name": "再学習用GPUクラスタ",
+                "kind": "業務",
+                "score": 0.36040481969898003,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_GPUノ_ド払い出し",
+                "name": "GPUノード払い出し",
+                "kind": "業務",
+                "score": 0.3485866454869617,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_INFRA": [
+              {
+                "node_id": "N_インフラエンジニア",
+                "name": "インフラエンジニア",
+                "kind": "職種",
+                "score": 0.899463092507861,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_MLOPS": [
+              {
+                "node_id": "N_MLOPS",
+                "name": "MLOps",
+                "kind": "その他",
+                "score": 0.7703355684310792,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_MLOPSエンジニア",
+                "name": "MLOpsエンジニア",
+                "kind": "職種",
+                "score": 0.6137611628220268,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q29": {
+          "status": "resolved",
+          "original_mode": "graph_expand",
+          "adapted_mode": "graph_expand",
+          "original_max_hops": 2,
+          "adapted_max_hops": 4,
+          "resolved_node_ids": {
+            "N_JOB_MLOPS": [
+              "N_MLOPS",
+              "N_MLOPSエンジニア"
+            ],
+            "N_SKILL_JETSON": [
+              "N_NVIDIA_JETSON"
+            ]
+          },
+          "resolution_details": {
+            "N_JOB_MLOPS": [
+              {
+                "node_id": "N_MLOPS",
+                "name": "MLOps",
+                "kind": "その他",
+                "score": 0.7703355684310792,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_MLOPSエンジニア",
+                "name": "MLOpsエンジニア",
+                "kind": "職種",
+                "score": 0.6137611628220268,
+                "lexical_match": true
+              }
+            ],
+            "N_SKILL_JETSON": [
+              {
+                "node_id": "N_NVIDIA_JETSON",
+                "name": "NVIDIA Jetson",
+                "kind": "スキル",
+                "score": 0.7259150266952102,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q30": {
+          "status": "resolved",
+          "original_mode": "graph_bridge",
+          "adapted_mode": "graph_bridge",
+          "original_max_hops": 2,
+          "adapted_max_hops": 4,
+          "resolved_node_ids": {
+            "N_WORK_FEATURE": [
+              "N_学習用特徴量",
+              "N_特徴量生成",
+              "N_特徴量管理",
+              "N_特徴量設計",
+              "N_与信用特徴量"
+            ],
+            "N_WORK_QUALITY": [
+              "N_デ_タ品質検知"
+            ],
+            "N_JOB_DE": [
+              "N_デ_タエンジニア",
+              "N_デ_タエンジニアリング"
+            ],
+            "N_JOB_MLOPS": [
+              "N_MLOPS",
+              "N_MLOPSエンジニア"
+            ]
+          },
+          "resolution_details": {
+            "N_WORK_FEATURE": [
+              {
+                "node_id": "N_学習用特徴量",
+                "name": "学習用特徴量",
+                "kind": "その他",
+                "score": 0.5304135812585375,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_特徴量生成",
+                "name": "特徴量生成",
+                "kind": "業務",
+                "score": 0.5297987358187138,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_特徴量管理",
+                "name": "特徴量管理",
+                "kind": "業務",
+                "score": 0.5005975966236909,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_特徴量設計",
+                "name": "特徴量設計",
+                "kind": "業務",
+                "score": 0.49694261381496313,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_与信用特徴量",
+                "name": "与信用特徴量",
+                "kind": "その他",
+                "score": 0.41304840853963276,
+                "lexical_match": true
+              }
+            ],
+            "N_WORK_QUALITY": [
+              {
+                "node_id": "N_デ_タ品質検知",
+                "name": "データ品質検知",
+                "kind": "業務",
+                "score": 0.6030046214705215,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_DE": [
+              {
+                "node_id": "N_デ_タエンジニア",
+                "name": "データエンジニア",
+                "kind": "職種",
+                "score": 0.898301211151091,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_デ_タエンジニアリング",
+                "name": "データエンジニアリング",
+                "kind": "職種",
+                "score": 0.7940869504539031,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_MLOPS": [
+              {
+                "node_id": "N_MLOPS",
+                "name": "MLOps",
+                "kind": "その他",
+                "score": 0.7703355684310792,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_MLOPSエンジニア",
+                "name": "MLOpsエンジニア",
+                "kind": "職種",
+                "score": 0.6137611628220268,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q31": {
+          "status": "resolved",
+          "original_mode": "graph_expand",
+          "adapted_mode": "graph_expand",
+          "original_max_hops": 2,
+          "adapted_max_hops": 4,
+          "resolved_node_ids": {
+            "N_WORK_EXPERIMENT": [
+              "N_実験管理"
+            ],
+            "N_SKILL_SAGEMAKER": [
+              "N_SAGEMAKER",
+              "N_SAGEMAKER_PIPELINE"
+            ],
+            "N_JOB_MLOPS": [
+              "N_MLOPS",
+              "N_MLOPSエンジニア"
+            ]
+          },
+          "resolution_details": {
+            "N_WORK_EXPERIMENT": [
+              {
+                "node_id": "N_実験管理",
+                "name": "実験管理",
+                "kind": "業務",
+                "score": 0.9219659925323075,
+                "lexical_match": true
+              }
+            ],
+            "N_SKILL_SAGEMAKER": [
+              {
+                "node_id": "N_SAGEMAKER",
+                "name": "SageMaker",
+                "kind": "スキル",
+                "score": 0.6759506589227539,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_SAGEMAKER_PIPELINE",
+                "name": "SageMaker Pipeline",
+                "kind": "スキル",
+                "score": 0.47897224204410327,
+                "lexical_match": true
+              }
+            ],
+            "N_JOB_MLOPS": [
+              {
+                "node_id": "N_MLOPS",
+                "name": "MLOps",
+                "kind": "その他",
+                "score": 0.7703355684310792,
+                "lexical_match": true
+              },
+              {
+                "node_id": "N_MLOPSエンジニア",
+                "name": "MLOpsエンジニア",
+                "kind": "職種",
+                "score": 0.6137611628220268,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q32": {
+          "status": "resolved",
+          "original_mode": "global_summary",
+          "adapted_mode": "global_summary",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {
+            "N_SKILL_PANDAS": [
+              "N_PANDAS"
+            ]
+          },
+          "resolution_details": {
+            "N_SKILL_PANDAS": [
+              {
+                "node_id": "N_PANDAS",
+                "name": "pandas",
+                "kind": "スキル",
+                "score": 0.5947058624496555,
+                "lexical_match": true
+              }
+            ]
+          },
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q33": {
+          "status": "resolved",
+          "original_mode": "global_summary",
+          "adapted_mode": "global_summary",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {},
+          "resolution_details": {},
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q34": {
+          "status": "resolved",
+          "original_mode": "global_summary",
+          "adapted_mode": "global_summary",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {},
+          "resolution_details": {},
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q35": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {},
+          "resolution_details": {},
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q36": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {},
+          "resolution_details": {},
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        },
+        "Q37": {
+          "status": "resolved",
+          "original_mode": "filter",
+          "adapted_mode": "filter",
+          "original_max_hops": 3,
+          "adapted_max_hops": 3,
+          "resolved_node_ids": {},
+          "resolution_details": {},
+          "unresolved_condition_node_ids": [],
+          "unresolved_start_node_ids": [],
+          "unresolved_target_node_ids": []
+        }
+      },
+      "ks": [
+        5,
+        10,
+        20
+      ],
+      "questions": [
+        {
+          "question_id": "Q21",
+          "category": "事実引き",
+          "evaluation_split": "holdout",
+          "plan_id": "Q21",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P012",
+            "P025"
+          ],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": 0.0,
+            "candidate_precision": 0.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q22",
+          "category": "事実引き",
+          "evaluation_split": "holdout",
+          "plan_id": "Q22",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P008",
+            "P009",
+            "P024"
+          ],
+          "candidates": {
+            "candidate_count": 3,
+            "candidate_ids": [
+              "P008",
+              "P009",
+              "P024"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P024",
+              "score": 1.0,
+              "vector_score": 0.2531650170698698,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_ソフトウェアエンジニア"
+              ],
+              "reasons": [
+                "condition:N_ソフトウェアエンジニア"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P009",
+              "score": 1.0,
+              "vector_score": 0.2415299315314036,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_ソフトウェアエンジニア"
+              ],
+              "reasons": [
+                "condition:N_ソフトウェアエンジニア"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P008",
+              "score": 1.0,
+              "vector_score": 0.15406626521385006,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_ソフトウェアエンジニア"
+              ],
+              "reasons": [
+                "condition:N_ソフトウェアエンジニア"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P008",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_ソフトウェアエンジニア"
+              ],
+              "reasons": [
+                "condition:N_ソフトウェアエンジニア"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P009",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_ソフトウェアエンジニア"
+              ],
+              "reasons": [
+                "condition:N_ソフトウェアエンジニア"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P024",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_ソフトウェアエンジニア"
+              ],
+              "reasons": [
+                "condition:N_ソフトウェアエンジニア"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q23",
+          "category": "事実引き",
+          "evaluation_split": "holdout",
+          "plan_id": "Q23",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P001",
+            "P002",
+            "P003",
+            "P004",
+            "P005",
+            "P007",
+            "P008",
+            "P010",
+            "P012",
+            "P013",
+            "P016",
+            "P017",
+            "P018",
+            "P019",
+            "P020",
+            "P021",
+            "P023",
+            "P025",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 19,
+            "candidate_ids": [
+              "P001",
+              "P002",
+              "P003",
+              "P004",
+              "P005",
+              "P007",
+              "P008",
+              "P010",
+              "P012",
+              "P013",
+              "P016",
+              "P017",
+              "P018",
+              "P019",
+              "P020",
+              "P021",
+              "P023",
+              "P025",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P012",
+              "score": 1.0,
+              "vector_score": 0.3378858035342663,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 1.0,
+              "vector_score": 0.31314418563547247,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P007",
+              "score": 1.0,
+              "vector_score": 0.3001041749126846,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P016",
+              "score": 1.0,
+              "vector_score": 0.2990460637673286,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P005",
+              "score": 1.0,
+              "vector_score": 0.2912500776493345,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 6,
+              "project_id": "P008",
+              "score": 1.0,
+              "vector_score": 0.28609492221499133,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 7,
+              "project_id": "P017",
+              "score": 1.0,
+              "vector_score": 0.27997867907730195,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 8,
+              "project_id": "P020",
+              "score": 1.0,
+              "vector_score": 0.2796497651304269,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 9,
+              "project_id": "P019",
+              "score": 1.0,
+              "vector_score": 0.2771783648922965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 10,
+              "project_id": "P025",
+              "score": 1.0,
+              "vector_score": 0.26464797997037437,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 11,
+              "project_id": "P002",
+              "score": 1.0,
+              "vector_score": 0.24986208503460833,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 12,
+              "project_id": "P004",
+              "score": 1.0,
+              "vector_score": 0.2362204402454138,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 13,
+              "project_id": "P003",
+              "score": 1.0,
+              "vector_score": 0.23018773852530375,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 14,
+              "project_id": "P001",
+              "score": 1.0,
+              "vector_score": 0.22921064897014995,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 15,
+              "project_id": "P018",
+              "score": 1.0,
+              "vector_score": 0.2228828849652138,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 16,
+              "project_id": "P021",
+              "score": 1.0,
+              "vector_score": 0.21800248851435583,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 17,
+              "project_id": "P010",
+              "score": 1.0,
+              "vector_score": 0.17603636320182114,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 18,
+              "project_id": "P023",
+              "score": 1.0,
+              "vector_score": 0.16493156399838485,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 19,
+              "project_id": "P013",
+              "score": 1.0,
+              "vector_score": 0.1626848300915358,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P001",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P002",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P003",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P004",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P005",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 6,
+              "project_id": "P007",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 7,
+              "project_id": "P008",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 8,
+              "project_id": "P010",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 9,
+              "project_id": "P012",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 10,
+              "project_id": "P013",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 11,
+              "project_id": "P016",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 12,
+              "project_id": "P017",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 13,
+              "project_id": "P018",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 14,
+              "project_id": "P019",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 15,
+              "project_id": "P020",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 16,
+              "project_id": "P021",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 17,
+              "project_id": "P023",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 18,
+              "project_id": "P025",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 19,
+              "project_id": "P027",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AWS"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AWS"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.2631578947368421,
+              "precision": 1.0,
+              "f1": 0.4166666666666667,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.5263157894736842,
+              "precision": 1.0,
+              "f1": 0.6896551724137931,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.2631578947368421,
+              "precision": 1.0,
+              "f1": 0.4166666666666667,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.5263157894736842,
+              "precision": 1.0,
+              "f1": 0.6896551724137931,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q24",
+          "category": "横断",
+          "evaluation_split": "holdout",
+          "plan_id": "Q24",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P015"
+          ],
+          "candidates": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              "P015"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P015",
+              "score": 1.0,
+              "vector_score": 0.5189937993730295,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP",
+                "N_インフラエンジニア",
+                "N_KUBERNETES化|N_KUBERNETES|N_KUBERNETES_JOB実装|N_学習ジョブのKUBERNETES定期実行"
+              ],
+              "reasons": [
+                "condition:cloud=GCP",
+                "condition:N_インフラエンジニア",
+                "condition:N_KUBERNETES化|N_KUBERNETES|N_KUBERNETES_JOB実装|N_学習ジョブのKUBERNETES定期実行"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P015",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP",
+                "N_インフラエンジニア",
+                "N_KUBERNETES化|N_KUBERNETES|N_KUBERNETES_JOB実装|N_学習ジョブのKUBERNETES定期実行"
+              ],
+              "reasons": [
+                "condition:cloud=GCP",
+                "condition:N_インフラエンジニア",
+                "condition:N_KUBERNETES化|N_KUBERNETES|N_KUBERNETES_JOB実装|N_学習ジョブのKUBERNETES定期実行"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q25",
+          "category": "横断",
+          "evaluation_split": "holdout",
+          "plan_id": "Q25",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P002",
+            "P020"
+          ],
+          "candidates": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              "P002",
+              "P020"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P020",
+              "score": 1.0,
+              "vector_score": 0.48230379189012296,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P002",
+              "score": 1.0,
+              "vector_score": 0.4610093643695075,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P002",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P020",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=小売",
+                "N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "reasons": [
+                "condition:domain=小売",
+                "condition:N_モデル監視|N_モデルエンドポイント監視"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q26",
+          "category": "横断",
+          "evaluation_split": "holdout",
+          "plan_id": "Q26",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P003",
+            "P010",
+            "P019",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 4,
+            "candidate_ids": [
+              "P003",
+              "P010",
+              "P019",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P003",
+              "score": 1.0,
+              "vector_score": 0.511066573372638,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 1.0,
+              "vector_score": 0.4641124989440345,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P019",
+              "score": 1.0,
+              "vector_score": 0.43897813959830245,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P010",
+              "score": 1.0,
+              "vector_score": 0.42872579693560736,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P003",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P010",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P019",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P027",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=AWS",
+                "N_AIRFLOW"
+              ],
+              "reasons": [
+                "condition:cloud=AWS",
+                "condition:N_AIRFLOW"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q27",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q27",
+          "plan_mode": "graph_bridge",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P008",
+            "P024"
+          ],
+          "candidates": {
+            "candidate_count": 3,
+            "candidate_ids": [
+              "P001",
+              "P008",
+              "P016"
+            ],
+            "candidate_recall": 0.5,
+            "candidate_precision": 0.3333333333333333,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P008",
+              "score": 1.0,
+              "vector_score": 0.2704290926822138,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_推論API|N_推薦モデル推論API呼び出し|N_画像診断モデルの推論API実装|N_推論"
+              ],
+              "reasons": [
+                "graph:N_ソフトウェアエンジニア:distance=0"
+              ],
+              "path": [
+                "N_ソフトウェアエンジニア",
+                "N_画像診断モデルの推論API実装",
+                "N_推論",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P016",
+              "score": 0.3333333333333333,
+              "vector_score": 0.22933430493994894,
+              "graph_score": 0.3333333333333333,
+              "matched_conditions": [
+                "N_推論API|N_推薦モデル推論API呼び出し|N_画像診断モデルの推論API実装|N_推論"
+              ],
+              "reasons": [
+                "graph:N_推論:distance=2"
+              ],
+              "path": [
+                "N_ソフトウェアエンジニア",
+                "N_画像診断モデルの推論API実装",
+                "N_推論",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P001",
+              "score": 0.25,
+              "vector_score": 0.33680920534935993,
+              "graph_score": 0.25,
+              "matched_conditions": [
+                "N_推論API|N_推薦モデル推論API呼び出し|N_画像診断モデルの推論API実装|N_推論"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=3"
+              ],
+              "path": [
+                "N_ソフトウェアエンジニア",
+                "N_画像診断モデルの推論API実装",
+                "N_推論",
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P008",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_推論API|N_推薦モデル推論API呼び出し|N_画像診断モデルの推論API実装|N_推論"
+              ],
+              "reasons": [
+                "graph:N_ソフトウェアエンジニア:distance=0"
+              ],
+              "path": [
+                "N_ソフトウェアエンジニア",
+                "N_画像診断モデルの推論API実装",
+                "N_推論",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P016",
+              "score": 0.3333333333333333,
+              "graph_score": 0.3333333333333333,
+              "matched_conditions": [
+                "N_推論API|N_推薦モデル推論API呼び出し|N_画像診断モデルの推論API実装|N_推論"
+              ],
+              "reasons": [
+                "graph:N_推論:distance=2"
+              ],
+              "path": [
+                "N_ソフトウェアエンジニア",
+                "N_画像診断モデルの推論API実装",
+                "N_推論",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P001",
+              "score": 0.25,
+              "graph_score": 0.25,
+              "matched_conditions": [
+                "N_推論API|N_推薦モデル推論API呼び出し|N_画像診断モデルの推論API実装|N_推論"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=3"
+              ],
+              "path": [
+                "N_ソフトウェアエンジニア",
+                "N_画像診断モデルの推論API実装",
+                "N_推論",
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "f1": 0.4,
+              "ndcg": 0.6131471927654584
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "f1": 0.4,
+              "ndcg": 0.6131471927654584
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "f1": 0.4,
+              "ndcg": 0.6131471927654584
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "f1": 0.4,
+              "ndcg": 0.6131471927654584
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "f1": 0.4,
+              "ndcg": 0.6131471927654584
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "f1": 0.4,
+              "ndcg": 0.6131471927654584
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q28",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q28",
+          "plan_mode": "graph_bridge",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P013",
+            "P018",
+            "P021"
+          ],
+          "candidates": {
+            "candidate_count": 3,
+            "candidate_ids": [
+              "P006",
+              "P015",
+              "P020"
+            ],
+            "candidate_recall": 0.0,
+            "candidate_precision": 0.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P015",
+              "score": 1.0,
+              "vector_score": 0.4766242078909393,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_GPU|N_GPUノ_ド管理|N_再学習用GPUクラスタ|N_GPUノ_ド払い出し"
+              ],
+              "reasons": [
+                "graph:N_インフラエンジニア:distance=0"
+              ],
+              "path": [
+                "N_インフラエンジニア",
+                "N_推論エンドポイントの監視設計",
+                "N_小売",
+                "N_需要予測",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P020",
+              "score": 1.0,
+              "vector_score": 0.29006769926617965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_機械学習基盤"
+              ],
+              "reasons": [
+                "graph:N_インフラエンジニア:distance=0"
+              ],
+              "path": [
+                "N_インフラエンジニア",
+                "N_推論エンドポイントの監視設計",
+                "N_小売",
+                "N_需要予測",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P006",
+              "score": 0.3333333333333333,
+              "vector_score": 0.305537707641677,
+              "graph_score": 0.3333333333333333,
+              "matched_conditions": [
+                "N_機械学習基盤"
+              ],
+              "reasons": [
+                "graph:N_小売:distance=2"
+              ],
+              "path": [
+                "N_インフラエンジニア",
+                "N_推論エンドポイントの監視設計",
+                "N_小売",
+                "N_需要予測",
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P015",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_GPU|N_GPUノ_ド管理|N_再学習用GPUクラスタ|N_GPUノ_ド払い出し"
+              ],
+              "reasons": [
+                "graph:N_インフラエンジニア:distance=0"
+              ],
+              "path": [
+                "N_インフラエンジニア",
+                "N_推論エンドポイントの監視設計",
+                "N_小売",
+                "N_需要予測",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P020",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_機械学習基盤"
+              ],
+              "reasons": [
+                "graph:N_インフラエンジニア:distance=0"
+              ],
+              "path": [
+                "N_インフラエンジニア",
+                "N_推論エンドポイントの監視設計",
+                "N_小売",
+                "N_需要予測",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P006",
+              "score": 0.3333333333333333,
+              "graph_score": 0.3333333333333333,
+              "matched_conditions": [
+                "N_機械学習基盤"
+              ],
+              "reasons": [
+                "graph:N_小売:distance=2"
+              ],
+              "path": [
+                "N_インフラエンジニア",
+                "N_推論エンドポイントの監視設計",
+                "N_小売",
+                "N_需要予測",
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "ndcg": 0.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q29",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q29",
+          "plan_mode": "graph_expand",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P016"
+          ],
+          "candidates": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              "P016"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P016",
+              "score": 1.0,
+              "vector_score": 0.5275030043629104,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_MLOPS|N_MLOPSエンジニア",
+                "N_NVIDIA_JETSON"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P016",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_MLOPS|N_MLOPSエンジニア",
+                "N_NVIDIA_JETSON"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q30",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q30",
+          "plan_mode": "graph_bridge",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P006",
+            "P011",
+            "P019",
+            "P022",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 4,
+            "candidate_ids": [
+              "P006",
+              "P011",
+              "P019",
+              "P027"
+            ],
+            "candidate_recall": 0.8,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P019",
+              "score": 1.0,
+              "vector_score": 0.41566783486568337,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_デ_タ品質検知"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 1.0,
+              "vector_score": 0.393552534285291,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_学習用特徴量|N_特徴量生成|N_特徴量管理|N_特徴量設計|N_与信用特徴量"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P006",
+              "score": 1.0,
+              "vector_score": 0.3854966689407586,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_学習用特徴量|N_特徴量生成|N_特徴量管理|N_特徴量設計|N_与信用特徴量"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P011",
+              "score": 1.0,
+              "vector_score": 0.30568291663133507,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_学習用特徴量|N_特徴量生成|N_特徴量管理|N_特徴量設計|N_与信用特徴量"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P006",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_学習用特徴量|N_特徴量生成|N_特徴量管理|N_特徴量設計|N_与信用特徴量"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P011",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_学習用特徴量|N_特徴量生成|N_特徴量管理|N_特徴量設計|N_与信用特徴量"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P019",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_デ_タ品質検知"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 4,
+              "project_id": "P027",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_学習用特徴量|N_特徴量生成|N_特徴量管理|N_特徴量設計|N_与信用特徴量"
+              ],
+              "reasons": [
+                "graph:N_デ_タエンジニア:distance=0"
+              ],
+              "path": [
+                "N_デ_タエンジニア",
+                "N_デ_タパイプライン構築",
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.8,
+              "precision": 1.0,
+              "f1": 0.888888888888889,
+              "ndcg": 0.8687949224876582
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.8,
+              "precision": 1.0,
+              "f1": 0.888888888888889,
+              "ndcg": 0.8687949224876582
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.8,
+              "precision": 1.0,
+              "f1": 0.888888888888889,
+              "ndcg": 0.8687949224876582
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.8,
+              "precision": 1.0,
+              "f1": 0.888888888888889,
+              "ndcg": 0.8687949224876582
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.8,
+              "precision": 1.0,
+              "f1": 0.888888888888889,
+              "ndcg": 0.8687949224876582
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.8,
+              "precision": 1.0,
+              "f1": 0.888888888888889,
+              "ndcg": 0.8687949224876582
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q31",
+          "category": "周辺",
+          "evaluation_split": "holdout",
+          "plan_id": "Q31",
+          "plan_mode": "graph_expand",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P001",
+            "P003",
+            "P014",
+            "P023"
+          ],
+          "candidates": {
+            "candidate_count": 3,
+            "candidate_ids": [
+              "P001",
+              "P014",
+              "P023"
+            ],
+            "candidate_recall": 0.75,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P001",
+              "score": 1.0,
+              "vector_score": 0.7453587989329727,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_実験管理",
+                "N_SAGEMAKER|N_SAGEMAKER_PIPELINE"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P014",
+              "score": 1.0,
+              "vector_score": 0.5835041963926965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_実験管理"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P023",
+              "score": 1.0,
+              "vector_score": 0.3870159796351275,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SAGEMAKER|N_SAGEMAKER_PIPELINE"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_hits": [
+            {
+              "rank": 1,
+              "project_id": "P001",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_実験管理",
+                "N_SAGEMAKER|N_SAGEMAKER_PIPELINE"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 2,
+              "project_id": "P014",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_実験管理"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            },
+            {
+              "rank": 3,
+              "project_id": "P023",
+              "score": 1.0,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_SAGEMAKER|N_SAGEMAKER_PIPELINE"
+              ],
+              "reasons": [
+                "graph:N_MLOPS:distance=0"
+              ],
+              "path": [
+                "N_MLOPS"
+              ]
+            }
+          ],
+          "graph_only_metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.75,
+              "precision": 1.0,
+              "f1": 0.8571428571428571,
+              "ndcg": 0.8318724637288826
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.75,
+              "precision": 1.0,
+              "f1": 0.8571428571428571,
+              "ndcg": 0.8318724637288826
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.75,
+              "precision": 1.0,
+              "f1": 0.8571428571428571,
+              "ndcg": 0.8318724637288826
+            }
+          },
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.75,
+              "precision": 1.0,
+              "f1": 0.8571428571428571,
+              "ndcg": 0.8318724637288826
+            },
+            "10": {
+              "k": 10,
+              "recall": 0.75,
+              "precision": 1.0,
+              "f1": 0.8571428571428571,
+              "ndcg": 0.8318724637288826
+            },
+            "20": {
+              "k": 20,
+              "recall": 0.75,
+              "precision": 1.0,
+              "f1": 0.8571428571428571,
+              "ndcg": 0.8318724637288826
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q32",
+          "category": "全体像",
+          "evaluation_split": "holdout",
+          "plan_id": "Q32",
+          "plan_mode": "global_summary",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P012",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              "P012",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P012",
+              "score": 0.3419754691681018,
+              "vector_score": 0.3419754691681018,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_PANDAS"
+              ],
+              "reasons": [
+                "condition:N_PANDAS"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P027",
+              "score": 0.22729700665479965,
+              "vector_score": 0.22729700665479965,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "N_PANDAS"
+              ],
+              "reasons": [
+                "condition:N_PANDAS"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q33",
+          "category": "全体像",
+          "evaluation_split": "holdout",
+          "plan_id": "Q33",
+          "plan_mode": "global_summary",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P003",
+            "P012",
+            "P017",
+            "P019",
+            "P027"
+          ],
+          "candidates": {
+            "candidate_count": 5,
+            "candidate_ids": [
+              "P003",
+              "P012",
+              "P017",
+              "P019",
+              "P027"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P027",
+              "score": 0.31371938468248406,
+              "vector_score": 0.31371938468248406,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P012",
+              "score": 0.2744361236809431,
+              "vector_score": 0.2744361236809431,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P017",
+              "score": 0.22213753080321394,
+              "vector_score": 0.22213753080321394,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P003",
+              "score": 0.21795716082312788,
+              "vector_score": 0.21795716082312788,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P019",
+              "score": 0.1996122262211136,
+              "vector_score": 0.1996122262211136,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "domain=金融"
+              ],
+              "reasons": [
+                "condition:domain=金融"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q34",
+          "category": "全体像",
+          "evaluation_split": "holdout",
+          "plan_id": "Q34",
+          "plan_mode": "global_summary",
+          "plan_status": "draft",
+          "gold_ids": [
+            "P006",
+            "P011",
+            "P015",
+            "P022",
+            "P024",
+            "P028"
+          ],
+          "candidates": {
+            "candidate_count": 6,
+            "candidate_ids": [
+              "P006",
+              "P011",
+              "P015",
+              "P022",
+              "P024",
+              "P028"
+            ],
+            "candidate_recall": 1.0,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": null
+          },
+          "hits": [
+            {
+              "rank": 1,
+              "project_id": "P011",
+              "score": 0.4309208521102219,
+              "vector_score": 0.4309208521102219,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 2,
+              "project_id": "P028",
+              "score": 0.405505270770923,
+              "vector_score": 0.405505270770923,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 3,
+              "project_id": "P022",
+              "score": 0.38850114860481577,
+              "vector_score": 0.38850114860481577,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 4,
+              "project_id": "P006",
+              "score": 0.379633004500692,
+              "vector_score": 0.379633004500692,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 5,
+              "project_id": "P024",
+              "score": 0.37765866800964626,
+              "vector_score": 0.37765866800964626,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            },
+            {
+              "rank": 6,
+              "project_id": "P015",
+              "score": 0.31374349448572897,
+              "vector_score": 0.31374349448572897,
+              "graph_score": 1.0,
+              "matched_conditions": [
+                "cloud=GCP"
+              ],
+              "reasons": [
+                "condition:cloud=GCP"
+              ],
+              "path": []
+            }
+          ],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {
+            "5": {
+              "k": 5,
+              "recall": 0.8333333333333334,
+              "precision": 1.0,
+              "f1": 0.9090909090909091,
+              "ndcg": 1.0
+            },
+            "10": {
+              "k": 10,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            },
+            "20": {
+              "k": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "ndcg": 1.0
+            }
+          },
+          "no_answer_correct": null
+        },
+        {
+          "question_id": "Q35",
+          "category": "該当なし",
+          "evaluation_split": "holdout",
+          "plan_id": "Q35",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": null,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": true
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {},
+          "no_answer_correct": true
+        },
+        {
+          "question_id": "Q36",
+          "category": "該当なし",
+          "evaluation_split": "holdout",
+          "plan_id": "Q36",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": null,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": true
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {},
+          "no_answer_correct": true
+        },
+        {
+          "question_id": "Q37",
+          "category": "該当なし",
+          "evaluation_split": "holdout",
+          "plan_id": "Q37",
+          "plan_mode": "filter",
+          "plan_status": "draft",
+          "gold_ids": [],
+          "candidates": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_recall": null,
+            "candidate_precision": 1.0,
+            "candidate_no_answer_correct": true
+          },
+          "hits": [],
+          "graph_only_hits": [],
+          "graph_only_metrics": {},
+          "metrics": {},
+          "no_answer_correct": true
+        }
+      ],
+      "summary": {
+        "positive_questions": 14,
+        "metrics": {
+          "5": {
+            "recall": 0.724749373433584,
+            "precision": 0.8095238095238094,
+            "f1": 0.7479849515563801,
+            "ndcg": 0.8081296127844285
+          },
+          "10": {
+            "recall": 0.7554511278195488,
+            "precision": 0.8095238095238094,
+            "f1": 0.7739776370318242,
+            "ndcg": 0.8081296127844285
+          },
+          "20": {
+            "recall": 0.7892857142857144,
+            "precision": 0.8095238095238094,
+            "f1": 0.7961451247165534,
+            "ndcg": 0.8081296127844285
+          }
+        },
+        "graph_only": {
+          "positive_questions": 11,
+          "metrics": {
+            "5": {
+              "recall": 0.6648325358851674,
+              "precision": 0.7575757575757575,
+              "f1": 0.6875180375180375,
+              "ndcg": 0.755801325362
+            },
+            "10": {
+              "recall": 0.688755980861244,
+              "precision": 0.7575757575757575,
+              "f1": 0.71233517440414,
+              "ndcg": 0.755801325362
+            },
+            "20": {
+              "recall": 0.7318181818181819,
+              "precision": 0.7575757575757575,
+              "f1": 0.7405483405483406,
+              "ndcg": 0.755801325362
+            }
+          }
+        },
+        "no_answer": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "candidate": {
+          "positive_questions": 14,
+          "recall": 0.7892857142857144,
+          "precision": 0.8095238095238094
+        },
+        "categories": {
+          "事実引き": {
+            "questions": 3,
+            "positive_questions": 3,
+            "candidate": {
+              "recall": 0.6666666666666666,
+              "precision": 0.6666666666666666
+            },
+            "metrics": {
+              "5": {
+                "recall": 0.42105263157894735,
+                "precision": 0.6666666666666666,
+                "f1": 0.47222222222222227,
+                "ndcg": 0.6666666666666666
+              },
+              "10": {
+                "recall": 0.5087719298245613,
+                "precision": 0.6666666666666666,
+                "f1": 0.5632183908045977,
+                "ndcg": 0.6666666666666666
+              },
+              "20": {
+                "recall": 0.6666666666666666,
+                "precision": 0.6666666666666666,
+                "f1": 0.6666666666666666,
+                "ndcg": 0.6666666666666666
+              }
+            },
+            "graph_only_questions": 3,
+            "graph_only_metrics": {
+              "5": {
+                "recall": 0.42105263157894735,
+                "precision": 0.6666666666666666,
+                "f1": 0.47222222222222227,
+                "ndcg": 0.6666666666666666
+              },
+              "10": {
+                "recall": 0.5087719298245613,
+                "precision": 0.6666666666666666,
+                "f1": 0.5632183908045977,
+                "ndcg": 0.6666666666666666
+              },
+              "20": {
+                "recall": 0.6666666666666666,
+                "precision": 0.6666666666666666,
+                "f1": 0.6666666666666666,
+                "ndcg": 0.6666666666666666
+              }
+            }
+          },
+          "全体像": {
+            "questions": 3,
+            "positive_questions": 3,
+            "candidate": {
+              "recall": 1.0,
+              "precision": 1.0
+            },
+            "metrics": {
+              "5": {
+                "recall": 0.9444444444444445,
+                "precision": 1.0,
+                "f1": 0.9696969696969697,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            }
+          },
+          "周辺": {
+            "questions": 5,
+            "positive_questions": 5,
+            "candidate": {
+              "recall": 0.61,
+              "precision": 0.6666666666666666
+            },
+            "metrics": {
+              "5": {
+                "recall": 0.61,
+                "precision": 0.6666666666666666,
+                "f1": 0.6292063492063492,
+                "ndcg": 0.6627629157963998
+              },
+              "10": {
+                "recall": 0.61,
+                "precision": 0.6666666666666666,
+                "f1": 0.6292063492063492,
+                "ndcg": 0.6627629157963998
+              },
+              "20": {
+                "recall": 0.61,
+                "precision": 0.6666666666666666,
+                "f1": 0.6292063492063492,
+                "ndcg": 0.6627629157963998
+              }
+            },
+            "graph_only_questions": 5,
+            "graph_only_metrics": {
+              "5": {
+                "recall": 0.61,
+                "precision": 0.6666666666666666,
+                "f1": 0.6292063492063492,
+                "ndcg": 0.6627629157963998
+              },
+              "10": {
+                "recall": 0.61,
+                "precision": 0.6666666666666666,
+                "f1": 0.6292063492063492,
+                "ndcg": 0.6627629157963998
+              },
+              "20": {
+                "recall": 0.61,
+                "precision": 0.6666666666666666,
+                "f1": 0.6292063492063492,
+                "ndcg": 0.6627629157963998
+              }
+            }
+          },
+          "横断": {
+            "questions": 3,
+            "positive_questions": 3,
+            "candidate": {
+              "recall": 1.0,
+              "precision": 1.0
+            },
+            "metrics": {
+              "5": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            },
+            "graph_only_questions": 3,
+            "graph_only_metrics": {
+              "5": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "10": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              },
+              "20": {
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "ndcg": 1.0
+              }
+            }
+          },
+          "該当なし": {
+            "questions": 3,
+            "positive_questions": 0,
+            "no_answer": {
+              "correct": 3,
+              "total": 3,
+              "accuracy": 1.0
+            }
+          }
+        }
+      },
+      "node_resolution": {
+        "strategy": "lexical_and_embedding_one_to_many",
+        "top_k": 5,
+        "min_score": 0.55,
+        "llm_max_hops": 4
+      }
+    }
+  ]
+}

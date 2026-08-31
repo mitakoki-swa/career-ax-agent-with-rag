@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Protocol
@@ -25,6 +26,7 @@ class SearchCondition:
     field: str
     value: str
     node_id: str = ""
+    node_ids: tuple[str, ...] = ()
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "SearchCondition":
@@ -32,15 +34,21 @@ class SearchCondition:
             field=str(payload.get("field") or "").strip(),
             value=str(payload.get("value") or "").strip(),
             node_id=str(payload.get("node_id") or "").strip(),
+            node_ids=_string_tuple(payload.get("node_ids")),
         )
         if condition.field not in CONDITION_FIELDS:
             raise ValueError(f"未対応の検索条件です: {condition.field}")
-        if not condition.value and not condition.node_id:
-            raise ValueError("検索条件には value または node_id が必要です")
+        if not condition.value and not condition.node_id and not condition.node_ids:
+            raise ValueError("検索条件には value、node_id、node_ids のいずれかが必要です")
         return condition
 
-    def to_dict(self) -> dict[str, str]:
-        return {"field": self.field, "value": self.value, "node_id": self.node_id}
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "field": self.field,
+            "value": self.value,
+            "node_id": self.node_id,
+            "node_ids": list(self.node_ids),
+        }
 
 
 @dataclass(frozen=True)
@@ -104,6 +112,11 @@ class SearchPlan:
             referenced = set(self.start_node_ids) | set(self.target_node_ids)
             referenced.update(
                 condition.node_id for condition in self.conditions if condition.node_id
+            )
+            referenced.update(
+                node_id
+                for condition in self.conditions
+                for node_id in condition.node_ids
             )
             unknown = referenced - known_node_ids
             if unknown:
@@ -178,6 +191,273 @@ def load_search_plans(path: Path) -> dict[str, SearchPlan]:
     }
 
 
+def load_node_labels(path: Path) -> dict[str, str]:
+    """検索計画の参照ノードIDと正規名を評価用に読み込む。"""
+
+    import csv
+
+    with path.open(encoding="utf-8-sig", newline="") as fh:
+        return {
+            (row.get("ノードID") or "").strip(): (row.get("正規名") or "").strip()
+            for row in csv.DictReader(fh)
+            if (row.get("ノードID") or "").strip()
+            and (row.get("正規名") or "").strip()
+        }
+
+
+def _normalize_node_name(value: str) -> str:
+    return re.sub(r"\s+", "", value).lower()
+
+
+class SemanticNodeResolver:
+    """別Graphのノード名を語彙一致と埋め込み類似度で1対多解決する。"""
+
+    def __init__(
+        self,
+        graph: Any,
+        embedder: Embedder,
+        top_k: int = 5,
+        min_score: float = 0.55,
+    ) -> None:
+        if top_k < 1:
+            raise ValueError("node top-k は1以上にしてください")
+        if not -1.0 <= min_score <= 1.0:
+            raise ValueError("node min-score は-1〜1で指定してください")
+        self.graph = graph
+        self.embedder = embedder
+        self.top_k = top_k
+        self.min_score = min_score
+        self.node_ids = sorted(graph.nodes)
+        self.node_texts = [
+            " ".join(
+                part
+                for part in (
+                    graph.nodes[node_id].name,
+                    graph.nodes[node_id].kind,
+                    graph.nodes[node_id].description,
+                )
+                if part
+            )
+            for node_id in self.node_ids
+        ]
+        self.node_vectors = embedder.embed(self.node_texts)
+        self._details: dict[str, list[dict[str, Any]]] = {}
+
+    def resolve(
+        self, label: str, expected_kind: str = ""
+    ) -> tuple[str, ...]:
+        normalized_label = _normalize_node_name(label)
+        lexical = {
+            node_id
+            for node_id in self.node_ids
+            if normalized_label
+            and (
+                normalized_label
+                in _normalize_node_name(self.graph.nodes[node_id].name)
+                or _normalize_node_name(self.graph.nodes[node_id].name)
+                in normalized_label
+            )
+        }
+        query_vector = self.embedder.embed([label])[0]
+        scored = sorted(
+            (
+                (cosine_similarity(query_vector, node_vector), node_id)
+                for node_id, node_vector in zip(
+                    self.node_ids, self.node_vectors
+                )
+            ),
+            key=lambda item: (-item[0], item[1]),
+        )
+        semantic = [
+            node_id
+            for score, node_id in scored
+            if score >= self.min_score
+            and (
+                not expected_kind
+                or self.graph.nodes[node_id].kind == expected_kind
+            )
+        ][: self.top_k]
+        matches = tuple(
+            sorted(
+                lexical | set(semantic),
+                key=lambda node_id: (
+                    -next(
+                        (
+                            score
+                            for score, scored_id in scored
+                            if scored_id == node_id
+                        ),
+                        0.0,
+                    ),
+                    node_id,
+                ),
+            )
+            [: self.top_k]
+        )
+        score_by_id = {node_id: score for score, node_id in scored}
+        self._details[label] = [
+            {
+                "node_id": node_id,
+                "name": self.graph.nodes[node_id].name,
+                "kind": self.graph.nodes[node_id].kind,
+                "score": score_by_id.get(node_id, 0.0),
+                "lexical_match": node_id in lexical,
+            }
+            for node_id in matches
+        ]
+        return matches
+
+    def details(self, label: str) -> list[dict[str, Any]]:
+        return self._details.get(label, [])
+
+
+def adapt_search_plan_to_graph(
+    plan: SearchPlan,
+    authoring_node_labels: dict[str, str],
+    graph: Any,
+    resolver: SemanticNodeResolver | None = None,
+    min_graph_hops: int | None = None,
+) -> tuple[SearchPlan, dict[str, Any]]:
+    """固定オントロジーの計画を、1対多で別GraphのノードIDへ写像する。"""
+
+    name_index: dict[str, list[str]] = {}
+    for node_id, node in graph.nodes.items():
+        name_index.setdefault(_normalize_node_name(node.name), []).append(node_id)
+
+    resolved: dict[str, list[str]] = {}
+
+    def resolve(node_id: str) -> tuple[str, ...]:
+        label = authoring_node_labels.get(node_id, "")
+        if not label:
+            return ()
+        if resolver is None:
+            normalized_label = _normalize_node_name(label)
+            matches = sorted(
+                candidate_id
+                for normalized_name, candidate_ids in name_index.items()
+                if normalized_label
+                and (
+                    normalized_label in normalized_name
+                    or normalized_name in normalized_label
+                )
+                for candidate_id in candidate_ids
+            )
+        else:
+            expected_kind = (
+                "職種"
+                if node_id.startswith("N_JOB_")
+                else "業務"
+                if node_id.startswith("N_WORK_")
+                else "スキル"
+                if node_id.startswith("N_SKILL_")
+                else ""
+            )
+            matches = list(resolver.resolve(label, expected_kind))
+        if not matches:
+            return ()
+        resolved[node_id] = matches
+        return tuple(matches)
+
+    unresolved_condition_ids: list[str] = []
+    conditions: list[SearchCondition] = []
+    for condition in plan.conditions:
+        mapped_ids = resolve(condition.node_id) if condition.node_id else ()
+        if condition.node_id and not mapped_ids:
+            unresolved_condition_ids.append(condition.node_id)
+        conditions.append(
+            SearchCondition(
+                field=condition.field,
+                value=condition.value,
+                node_ids=mapped_ids,
+            )
+        )
+
+    start_node_ids = tuple(
+        mapped
+        for node_id in plan.start_node_ids
+        for mapped in resolve(node_id)
+    )
+    target_node_ids = tuple(
+        mapped
+        for node_id in plan.target_node_ids
+        for mapped in resolve(node_id)
+    )
+    unresolved_start_ids = [
+        node_id for node_id in plan.start_node_ids if node_id not in resolved
+    ]
+    unresolved_target_ids = [
+        node_id for node_id in plan.target_node_ids if node_id not in resolved
+    ]
+
+    missing_required_anchor = (
+        plan.mode == "graph_expand" and not start_node_ids
+    ) or (
+        plan.mode == "graph_bridge"
+        and (not start_node_ids or not target_node_ids)
+    )
+    if missing_required_anchor:
+        adapted = SearchPlan(
+            mode="filter",
+            operator="AND",
+            conditions=(
+                SearchCondition(
+                    field="project_id",
+                    value="__UNRESOLVED_GRAPH_ANCHOR__",
+                ),
+            ),
+            query_terms=plan.query_terms,
+            confidence=plan.confidence,
+            status=plan.status,
+            note=f"{plan.note} / unresolved graph anchor",
+        )
+        status = "unresolved"
+    else:
+        adapted = SearchPlan(
+            mode=plan.mode,
+            operator=plan.operator,
+            conditions=tuple(conditions),
+            start_node_ids=start_node_ids,
+            target_node_ids=target_node_ids,
+            relations=plan.relations,
+            max_hops=(
+                max(plan.max_hops, min_graph_hops)
+                if min_graph_hops is not None
+                and plan.mode in {"graph_expand", "graph_bridge"}
+                else plan.max_hops
+            ),
+            query_terms=plan.query_terms,
+            confidence=plan.confidence,
+            status=plan.status,
+            note=plan.note,
+        )
+        status = (
+            "partial"
+            if (
+                unresolved_condition_ids
+                or unresolved_start_ids
+                or unresolved_target_ids
+            )
+            else "resolved"
+        )
+    adapted.validate(set(graph.nodes))
+    return adapted, {
+        "status": status,
+        "original_mode": plan.mode,
+        "adapted_mode": adapted.mode,
+        "original_max_hops": plan.max_hops,
+        "adapted_max_hops": adapted.max_hops,
+        "resolved_node_ids": resolved,
+        "resolution_details": {
+            node_id: resolver.details(authoring_node_labels[node_id])
+            for node_id in resolved
+            if resolver is not None
+        },
+        "unresolved_condition_node_ids": unresolved_condition_ids,
+        "unresolved_start_node_ids": unresolved_start_ids,
+        "unresolved_target_node_ids": unresolved_target_ids,
+    }
+
+
 def save_search_plans(path: Path, plans: dict[str, SearchPlan]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
@@ -226,8 +506,17 @@ def filter_project_ids(
     condition_sets: list[set[str]] = []
     labels: list[str] = []
     for condition in plan.conditions:
-        if condition.node_id:
-            matched = set(projects_by_node.get(condition.node_id, set()))
+        condition_node_ids = (
+            condition.node_ids
+            or ((condition.node_id,) if condition.node_id else ())
+        )
+        if condition_node_ids:
+            matched = set().union(
+                *(
+                    projects_by_node.get(node_id, set())
+                    for node_id in condition_node_ids
+                )
+            )
         else:
             matched = {
                 project_id
@@ -236,7 +525,8 @@ def filter_project_ids(
             }
         condition_sets.append(matched)
         labels.append(
-            condition.node_id or f"{condition.field}={condition.value}"
+            "|".join(condition_node_ids)
+            or f"{condition.field}={condition.value}"
         )
 
     if plan.operator == "AND":
